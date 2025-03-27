@@ -18,6 +18,22 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const bcrypt = require('bcryptjs');
 const User = require('./models/User');
+const express = require('express');
+const cors = require('cors');
+const connectDB = require('./config/db');
+require('dotenv').config();
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+connectDB(); // Підключення до MongoDB
+
+app.get('/', (req, res) => {
+    res.send('API працює!');
+});
+
+app.listen(5000, () => console.log('Сервер запущений на порту 5000'));
 
 dotenv.config();
 mongoose.connect(process.env.MONGO_URI, {
