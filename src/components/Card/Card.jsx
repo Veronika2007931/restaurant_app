@@ -1,4 +1,4 @@
-import {} from "./Card.styled"
+import {IMage} from "./Card.styled"
 
 
 const Card = () => {
@@ -6,6 +6,8 @@ const Card = () => {
 
   return (
     <>
+      <IMage src="" alt="" />
+      <h1></h1>
     </>
   )
 }
