@@ -1,11 +1,16 @@
 import {} from "./Menu.styled"
 
 
-const Menu = () => {
+export const Menu = () => {
 
 
   return (
     <>
+      <div>
+        <ul>
+
+        </ul>
+      </div>
     </>
   )
 }

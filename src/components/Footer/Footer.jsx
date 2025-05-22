@@ -1,7 +1,7 @@
 import {} from "./Footer.styled"
 
 
-const Footer = () => {
+export const Footer = () => {
 
 
   return (
