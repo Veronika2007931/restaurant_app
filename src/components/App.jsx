@@ -10,9 +10,9 @@ export const App = () => {
   return (
     <>
       <Header />
-      <RegisterForm/>
-      <Menu />
-      <Footer/>
+      {/* <RegisterForm/> */}
+      {/* <Menu /> */}
+      {/* <Footer/> */}
     </>
   );
 };
