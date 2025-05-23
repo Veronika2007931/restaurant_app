@@ -50,7 +50,7 @@ export const Header = () => {
       </NavBar>
     </HeaderContainer>
 
-      <label>Name</label>
+
       <div >
         {/* це тернарник, якщо зареєстрований покаже ім'я якщо ні кнопку зареєструватись */}
         {account ? <span>{account.name }</span>: <button  type = "button" onClick={switchModal}>Sign up</button>}

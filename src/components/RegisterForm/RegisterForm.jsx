@@ -10,10 +10,7 @@ export const RegisterForm = ({ closeModal, regis, check }) => {
         closeModal()
       }
     }
-
-
-    window.addEventListener('keydown', closeOnEsc)
-
+     window.addEventListener('keydown', closeOnEsc)
 
     return () => {
       window.removeEventListener('keydown', closeOnEsc)
@@ -48,31 +45,31 @@ export const RegisterForm = ({ closeModal, regis, check }) => {
 
 
     }
+  }
 
     return (
 
-        <div onClick={closeOnOverlay}>
-          <form onSubmit={signUp}>
-            <ul>
-              <li>
-                <label >UserName
-                  <input type="text" name="name" placeholder="Username" />
-                </label></li>
-              <li>
-                <label>Email
-                  <input type="text" name="email" placeholder="Email" />
-                </label>
-              </li>
-              <li>
-                <label >Password
-                  <input type="password" name="password" placeholder="Password" />
-                </label>
-              </li>
-            </ul>
-            <button type="submit">Sign up</button>
-          </form>
-        </div>
+      <div >
+        <form >
+          <ul>
+            <li>
+              <label >UserName
+                <input type="text" name="name" placeholder="Username" />
+              </label></li>
+            <li>
+              <label>Email
+                <input type="text" name="email" placeholder="Email" />
+              </label>
+            </li>
+            <li>
+              <label >Password
+                <input type="password" name="password" placeholder="Password" />
+              </label>
+            </li>
+          </ul>
+          <button type="submit">Sign up</button>
+        </form>
+      </div>
 
     )
   }
-}
