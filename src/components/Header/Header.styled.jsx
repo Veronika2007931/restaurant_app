@@ -26,6 +26,7 @@ export const NavBar = styled.nav`
   padding: 15px 5%;
   max-width: 1400px;
   margin: 0 auto;
+  height: 80px;
 `;
 
 export const Logo = styled.h1`
@@ -104,4 +105,34 @@ export const LanguageSelector = styled.span`
   &:hover {
     color: #d4a762;
   }
+`;
+export const SignUpButton = styled.button`
+  background-color: #ffb566; /* світло-помаранчевий */
+  color: #000000; /* чорний текст */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  `;
+
+export const IconWrapper = styled.div`
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+`;
+
+export const UserIcon = styled.img`
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  /* margin-bottom: 8px; */
+`;
+export const Name = styled.span`
+  display: flex;
+  text-align: center;
 `;

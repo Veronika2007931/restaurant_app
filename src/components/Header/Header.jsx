@@ -1,4 +1,4 @@
-import { HeaderContainer, TopBar, NavBar, Logo, NavLink, WorkingHours, ReservationButton, LanguageSelector } from './Header.styled';
+import { HeaderContainer, TopBar, NavBar, Logo, NavLink, WorkingHours, ReservationButton, LanguageSelector, SignUpButton, IconWrapper,UserIcon, Name } from './Header.styled';
 import { RegisterForm} from "../RegisterForm/RegisterForm.jsx"
 import { useState, useEffect } from "react"
 
@@ -27,10 +27,10 @@ export const Header = () => {
     <>
       <HeaderContainer>
       <TopBar>
-        <div>
+
           Київ, вул. Велика Васильківська, 114<br />
           +380 (67) 478 99 38
-        </div>
+
       </TopBar>
 
       <NavBar>
@@ -45,18 +45,24 @@ export const Header = () => {
         <div>
           <WorkingHours>Пн - Нд 11:00–22:00</WorkingHours>
           <ReservationButton>РЕЗЕРВ СТОЛУ</ReservationButton>
-          <LanguageSelector>UA ▼</LanguageSelector>
+
+             {/* це тернарник, якщо зареєстрований покаже ім'я якщо ні кнопку зареєструватись */}
+        {account ? <IconWrapper>
+          <UserIcon src="../Images/free-icon-profile-7710521.png"  alt="photo" />
+          <Name>{account.name }</Name>
+        </IconWrapper>: <ReservationButton type="button" onClick={switchModal}>Sign up</ReservationButton>}
+
+            {showModal && <RegisterForm closeModal={switchModal} regis={newAcc} check={check} />}
+            <LanguageSelector>UA ▼</LanguageSelector>
         </div>
-      </NavBar>
+        </NavBar>
+
+
       </HeaderContainer>
-      
 
 
-      <div >
-        {/* це тернарник, якщо зареєстрований покаже ім'я якщо ні кнопку зареєструватись */}
-        {account ? <span>{account.name }</span>: <button  type = "button" onClick={switchModal}>Sign up</button>}
-      </div>
-      {showModal && <RegisterForm closeModal={switchModal} regis={newAcc} check={ check} />}
+
+
     </>
   )
 }

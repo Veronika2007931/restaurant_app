@@ -37,6 +37,7 @@ export const FormLabel = styled.label`
   flex-direction: column;
   gap: 0.5rem;
   font-weight: 500;
+  margin-bottom: 10px;
 `;
 
 export const FormInput = styled.input`
@@ -47,7 +48,7 @@ export const FormInput = styled.input`
 
 export const FormButton = styled.button`
   padding: 0.75rem;
-  background-color: #4CAF50;
+  background-color: #d4a762;
   color: white;
   border: none;
   border-radius: 4px;
@@ -55,7 +56,9 @@ export const FormButton = styled.button`
   font-weight: bold;
   margin-top: 1rem;
 
-  &:hover {
-    background-color: #45a049;
-  }
+
+`;
+
+export const Ul = styled.ul`
+  list-style: none;
 `;

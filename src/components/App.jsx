@@ -10,7 +10,7 @@ export const App = () => {
   return (
     <>
       <Header />
-      {/* <RegisterForm/> */}
+
       {/* <Menu /> */}
       {/* <Footer/> */}
     </>

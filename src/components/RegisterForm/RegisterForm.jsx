@@ -1,4 +1,4 @@
-import { } from "./RegisterForm.styled"
+import { FormOverlay, FormContainer, StyledForm,FormLabel, FormInput, FormButton, Ul } from "./RegisterForm.styled"
 import { useState, useEffect } from "react"
 
 
@@ -49,27 +49,30 @@ export const RegisterForm = ({ closeModal, regis, check }) => {
 
     return (
 
-      <div >
-        <form >
-          <ul>
+      <FormOverlay onClick={closeOnOverlay}>
+        <FormContainer>
+           <StyledForm onSubmit={signUp}>
+          <Ul>
             <li>
-              <label >UserName
-                <input type="text" name="name" placeholder="Username" />
-              </label></li>
+              <FormLabel >UserName
+                <FormInput type="text" name="name" placeholder="Username" />
+              </FormLabel></li>
             <li>
-              <label>Email
-                <input type="text" name="email" placeholder="Email" />
-              </label>
+              <FormLabel>Email
+                <FormInput type="text" name="email" placeholder="Email" />
+              </FormLabel>
             </li>
             <li>
-              <label >Password
-                <input type="password" name="password" placeholder="Password" />
-              </label>
+              <FormLabel >Password
+                <FormInput type="password" name="password" placeholder="Password" />
+                </FormLabel>
+                
             </li>
-          </ul>
-          <button type="submit">Sign up</button>
-        </form>
-      </div>
+          </Ul>
+          <FormButton type="submit">Sign up</FormButton>
+        </StyledForm>
+       </FormContainer>
+      </FormOverlay>
 
     )
   }
