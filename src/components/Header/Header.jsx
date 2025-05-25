@@ -1,6 +1,6 @@
-import { HeaderContainer, TopBar, NavBar, Logo, NavLink, WorkingHours, ReservationButton, LanguageSelector, SignUpButton, IconWrapper,UserIcon, Name } from './Header.styled';
+import { HeaderContainer, TopBar, NavBar, Logo, NavLink, WorkingHours, ReservationButton, LanguageSelector, IconWrapper,UserIcon, Name, RightSection, } from './Header.styled';
 import { RegisterForm} from "../RegisterForm/RegisterForm.jsx"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 export const Header = () => {
 
@@ -34,28 +34,40 @@ export const Header = () => {
       </TopBar>
 
       <NavBar>
-        <Logo>МІТЕРІЯ</Logo>
+  <Logo>МІТЕРІЯ</Logo>
 
-        <nav>
-          <NavLink href="#">ПРО НАС</NavLink>
-          <NavLink href="#">ДОСТАВКА</NavLink>
-          <NavLink href="#">КОНТАКТИ</NavLink>
-        </nav>
+  <nav>
+    <NavLink href="#">МЕНЮ</NavLink>
+    <NavLink href="#">ДОСТАВКА</NavLink>
+    <NavLink href="#">КОНТАКТИ</NavLink>
+  </nav>
 
-        <div>
-          <WorkingHours>Пн - Нд 11:00–22:00</WorkingHours>
-          <ReservationButton>РЕЗЕРВ СТОЛУ</ReservationButton>
+  <RightSection>
+    <WorkingHours>Пн - Нд 11:00–22:00</WorkingHours>
+    <ReservationButton>РЕЗЕРВ СТОЛУ</ReservationButton>
 
-             {/* це тернарник, якщо зареєстрований покаже ім'я якщо ні кнопку зареєструватись */}
-        {account ? <IconWrapper>
-          <UserIcon src="../Images/free-icon-profile-7710521.png"  alt="photo" />
-          <Name>{account.name }</Name>
-        </IconWrapper>: <ReservationButton type="button" onClick={switchModal}>Sign up</ReservationButton>}
+    {account ? (
+      <IconWrapper>
+        <UserIcon src="../Images/free-icon-profile-7710521.png" alt="photo" />
+        <Name>{account.name}</Name>
+      </IconWrapper>
+    ) : (
+      <ReservationButton type="button" onClick={switchModal}>
+        Sign up
+      </ReservationButton>
+    )}
 
-            {showModal && <RegisterForm closeModal={switchModal} regis={newAcc} check={check} />}
-            <LanguageSelector>UA ▼</LanguageSelector>
-        </div>
-        </NavBar>
+    {showModal && (
+      <RegisterForm
+        closeModal={switchModal}
+        regis={newAcc}
+        check={check}
+      />
+    )}
+
+    <LanguageSelector>UA</LanguageSelector>
+  </RightSection>
+</NavBar>
 
 
       </HeaderContainer>

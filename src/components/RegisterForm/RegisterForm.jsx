@@ -1,5 +1,5 @@
 import { FormOverlay, FormContainer, StyledForm,FormLabel, FormInput, FormButton, Ul } from "./RegisterForm.styled"
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 
 
 export const RegisterForm = ({ closeModal, regis, check }) => {
@@ -37,11 +37,11 @@ export const RegisterForm = ({ closeModal, regis, check }) => {
       closeModal()
     }
     else {
-      const logOut = () => {
-        regis(null)
-        localStorage.removeItem("accInfo")
-        closeModal()
-      }
+    //   const logOut = () => {
+    //     regis(null)
+    //     localStorage.removeItem("accInfo")
+    //     closeModal()
+    //   }
 
 
     }
@@ -66,7 +66,7 @@ export const RegisterForm = ({ closeModal, regis, check }) => {
               <FormLabel >Password
                 <FormInput type="password" name="password" placeholder="Password" />
                 </FormLabel>
-                
+
             </li>
           </Ul>
           <FormButton type="submit">Sign up</FormButton>

@@ -9,7 +9,11 @@ export const HeaderContainer = styled.header`
   background-color: white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 `;
-
+export const RightSection = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 15px;
+`;
 export const TopBar = styled.div`
   background-color: #f8f8f8;
   padding: 8px 0;
@@ -119,20 +123,20 @@ export const SignUpButton = styled.button`
   `;
 
 export const IconWrapper = styled.div`
-    display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  width: fit-content;
-  height: fit-content;
+  text-align: center;
+  min-width: 50px; /* запобігає стрибкам */
 `;
-
 export const UserIcon = styled.img`
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   object-fit: cover;
-  /* margin-bottom: 8px; */
 `;
 export const Name = styled.span`
-  display: flex;
-  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
 `;
