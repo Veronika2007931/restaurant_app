@@ -65,6 +65,7 @@ export const RegisterForm = ({ closeModal, regis, check }) => {
               <FormLabel >Password
                 <FormInput type="password" name="password" placeholder="Password" />
                 </FormLabel>
+                <img></img>
 
             </li>
           </Ul>
