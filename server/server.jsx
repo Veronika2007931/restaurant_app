@@ -1,5 +1,5 @@
-// Установи зависимости командой:
-// npm install express sequelize mysql2
+
+npm install express sequelize mysql2
 
 const express = require('express');
 const { Sequelize, DataTypes } = require('sequelize');
