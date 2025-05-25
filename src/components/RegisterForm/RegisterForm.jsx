@@ -36,15 +36,14 @@ export const RegisterForm = ({ closeModal, regis, check }) => {
       localStorage.setItem("accInfo", JSON.stringify(accInfo))
       closeModal()
     }
-    else {
-    //   const logOut = () => {
-    //     regis(null)
-    //     localStorage.removeItem("accInfo")
-    //     closeModal()
-    //   }
-
-
-    }
+    // else {
+    //         const logOut=()=>{
+    //             regis(null)
+    //             localStorage.removeItem("accInfo")
+    //             closeModal()
+    //         }
+    //         check()?confirm("Log out")&&logOut():alert('You have to fill all fields')
+    //     }
   }
 
     return (

@@ -1,6 +1,6 @@
 import { HeaderContainer, TopBar, NavBar, Logo, NavLink, WorkingHours, ReservationButton, LanguageSelector, IconWrapper,UserIcon, Name, RightSection, } from './Header.styled';
 import { RegisterForm} from "../RegisterForm/RegisterForm.jsx"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export const Header = () => {
 
@@ -12,16 +12,16 @@ export const Header = () => {
   }
 
   const check = () => {
-    const info = JSON.parse(localStorage.getItem('accInfo'))
-    return info ? info.name&&info.email&&info.password? true:false:false
+     const info = JSON.parse(localStorage.getItem('accInfo'))
+        return info?info.name&&info.email&&info.password?true:false:false
   }
 
-  // useEffect(() => {
-  //   const info = JSON.parse(localStorage.getItem('accInfo'))
-  //   if (check()) {
-  //     newAcc(info)
-  //   }
-  // })
+  useEffect(() => {
+  const info = JSON.parse(localStorage.getItem('accInfo'));
+  if (check()) {
+    newAcc(info);
+  }
+}, []);
 
   return (
     <>
