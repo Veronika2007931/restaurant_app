@@ -25,6 +25,7 @@ export const MenuList = () => {
           <p>{item.description}</p>
           <p><strong>Ціна:</strong> {item.price} грн</p>
           <p><strong>Вага:</strong> {item.weight} г</p>
+          <button>Замовити</button>
         </div>
       ))}
     </div>
