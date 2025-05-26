@@ -30,7 +30,7 @@ const MenuItem = sequelize.define('MenuItem', {
         allowNull: false
     },
     imageUrl: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(1000),
         allowNull: true
     }
 });
@@ -100,6 +100,16 @@ res.status(400).json({ error: error.message || "Невідома помилка"
     }
 });
 
+app.get('/menu', async (req, res) => {
+  try {
+    const menuItems = await MenuItem.findAll();
+    res.json(menuItems);
+  } catch (error) {
+    console.error("Помилка отримання меню:", error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // Маршрут: список клиентов
 app.get('/clients', async (req, res) => {
     const clients = await Client.findAll();
@@ -129,7 +139,20 @@ app.get('/reservations', async (req, res) => {
 });
 
 // Запуск сервера
-app.listen(3000, () => {
-    console.log('Сервер запущен на http://localhost:3000');
+app.listen(4000, () => {
+  console.log('Сервер запущен на http://localhost:4000');
+});
+
+app.delete('/menu/:id', async (req, res) => {
+  try {
+    const deleted = await MenuItem.destroy({ where: { id: req.params.id } });
+    if (deleted) {
+      res.status(204).send(); // Успішно видалено
+    } else {
+      res.status(404).json({ error: "Item not found" });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 });
 

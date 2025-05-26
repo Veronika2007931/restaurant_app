@@ -43,12 +43,16 @@ export const Logo = styled.h1`
 
 export const NavLink = styled.a`
   margin: 0 20px;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  font-size: 16px;
   position: relative;
   transition: color 0.3s ease;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  padding: 8px 12px;
+
 
   &:hover {
     color: #d4a762;

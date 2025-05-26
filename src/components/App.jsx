@@ -1,17 +1,29 @@
 
-import { Header } from "./Header/Header"
+import React, { useState } from "react";
+import { Header } from "./Header/Header";
+import { MenuList } from "./Menu/MenuList";
+import { Contacts } from "./Contacts/contacts"
+import {Delivery} from "./Delivery/delivery"
 
+export function App() {
+  const [activeSection, setActiveSection] = useState("home");
 
-
-
-
-export const App = () => {
   return (
     <>
-      <Header />
 
+      {activeSection === "home" && <Header setActiveSection={setActiveSection} />}
 
+      <main style={{ padding: "20px" }}>
+        {activeSection === "menu" && <MenuList />}
 
+        {activeSection === "contacts" && (
+          <Contacts/>
+        )}
+
+        {activeSection === "delivery" && (
+          <Delivery/>
+        )}
+      </main>
     </>
   );
-};
+}
