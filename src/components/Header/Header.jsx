@@ -1,6 +1,7 @@
 import { HeaderContainer, TopBar, NavBar, Logo, NavLink, WorkingHours, ReservationButton, LanguageSelector, IconWrapper,UserIcon, Name, RightSection, } from './Header.styled';
 import { RegisterForm} from "../RegisterForm/RegisterForm.jsx"
 import { useState, useEffect } from "react"
+import { MenuList } from 'components/Menu/MenuList';
 
 export const Header = () => {
 
@@ -37,7 +38,7 @@ export const Header = () => {
   <Logo>МІТЕРІЯ</Logo>
 
   <nav>
-    <NavLink href="#">МЕНЮ</NavLink>
+    <NavLink href="#" onClick={MenuList}>МЕНЮ</NavLink>
     <NavLink href="#">ДОСТАВКА</NavLink>
     <NavLink href="#">КОНТАКТИ</NavLink>
   </nav>
