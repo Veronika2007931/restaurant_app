@@ -6,100 +6,134 @@ export const HeaderContainer = styled.header`
   position: fixed;
   top: 0;
   z-index: 1000;
-  background-color: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-`;
-export const RightSection = styled.div`
+  background-color: #1d1210; /* темний фон */
+  color: #fff;
   display: flex;
-  align-items: center;
-  gap: 15px;
+  flex-direction: column;
 `;
+
 export const TopBar = styled.div`
-  background-color: #f8f8f8;
-  padding: 8px 0;
+  background-color: #1d1210;
+  color: #fff;
+  padding: 5px 0;
   text-align: center;
   font-size: 14px;
-  line-height: 1.5;
-  color: #555;
+  line-height: 1.4;
+  border-bottom: 1px solid #3a2e2a;
 `;
 
 export const NavBar = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 5%;
+  padding: 10px 5%;
   max-width: 1400px;
   margin: 0 auto;
-  height: 80px;
 `;
 
 export const Logo = styled.h1`
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 40px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 6px;
+  text-transform: uppercase;
   margin: 0;
-  color: #d4a762;
-  letter-spacing: 1px;
 `;
 
 export const NavLink = styled.a`
-  margin: 0 20px;
+  margin: 0 15px;
   position: relative;
-  transition: color 0.3s ease;
-  background: none;
-  border: none;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
-  color: #333;
+  color: #fff;
+  text-transform: uppercase;
   cursor: pointer;
-  padding: 8px 12px;
-
+  padding: 6px 10px;
+  transition: color 0.3s;
 
   &:hover {
     color: #d4a762;
+  }
 
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: #d4a762;
-    }
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #d4a762;
+    transition: width 0.3s;
+  }
+
+  &:hover::after {
+    width: 100%;
   }
 `;
 
 export const WorkingHours = styled.span`
-  margin-right: 25px;
-  font-size: 14px;
-  color: #666;
+  font-size: 13px;
+  color: #d4a762;
+  margin-right: 20px;
 `;
 
+export const RightSection = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  color: #fff;
+`;
+
+
 export const ReservationButton = styled.button`
-  background-color: #d4a762;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin-right: 15px;
+  background-color: transparent;
+  color: #d4a762;
+  border: 1px solid #d4a762;
+  padding: 8px 16px;
   border-radius: 4px;
   cursor: pointer;
   font-weight: 600;
   font-size: 14px;
-  transition: all 0.3s ease;
   text-transform: uppercase;
+  transition: all 0.3s ease;
 
   &:hover {
-    background-color: #c09555;
+    background-color: #d4a762;
+    color: #1d1210;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(212, 167, 98, 0.3);
   }
 `;
+
+
+export const SignInButton = styled.button`
+  background-color: transparent;
+  color: #d4a762;
+  border: 1px solid #d4a762;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #d4a762;
+    color: #1d1210;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(212, 167, 98, 0.3);
+  }
+`;
+
 
 export const LanguageSelector = styled.span`
   cursor: pointer;
   font-weight: 500;
   position: relative;
   padding-right: 15px;
+  color: #fff;
 
   &::after {
     content: '▼';
@@ -114,33 +148,27 @@ export const LanguageSelector = styled.span`
     color: #d4a762;
   }
 `;
-export const SignUpButton = styled.button`
-  background-color: #ffb566; /* світло-помаранчевий */
-  color: #000000; /* чорний текст */
-  border: none;
-  padding: 10px 20px;
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  `;
 
 export const IconWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  min-width: 50px; /* запобігає стрибкам */
+  min-width: 50px;
+  color: #fff;
 `;
+
 export const UserIcon = styled.img`
   width: 36px;
   height: 36px;
   border-radius: 50%;
   object-fit: cover;
+  border: 1px solid #d4a762;
 `;
+
 export const Name = styled.span`
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
-  color: #333;
+  margin-top: 4px;
+  color: #d4a762;
 `;
