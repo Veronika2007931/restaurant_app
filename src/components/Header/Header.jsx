@@ -10,7 +10,6 @@ import {
   RightSection,
   LeftSection,
   CenterSection,
-  SignUpButton,
   ReservationButton,
   IconWrapper,
   UserIcon,
@@ -77,8 +76,6 @@ export const Header = ({ setActiveSection }) => {
           )}
         </RightSection>
       </NavBar>
-
-      <Footer />
     </HeaderContainer>
 
   );

@@ -11,15 +11,12 @@ import {
     RightSection,
     LeftSection,
     CenterSection,
-    SignUpButton,
     ReservationButton,
     IconWrapper,
     UserIcon,
     Name,
     LanguageSelector,
     Logo,
-    BottomLef,
-    BottomRigh,
     SignInButton,
 } from "./Header2.styled";
 
@@ -86,7 +83,7 @@ export const Header2 = ({ setActiveSection }) => {
                 </RightSection>
             </NavBar>
 
-            <Footer />
+
         </HeaderContainer>
 
     );

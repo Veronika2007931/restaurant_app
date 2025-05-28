@@ -1,6 +1,7 @@
 import  { useEffect, useState } from "react"
 import axios from "axios"
 import { Basket } from "components/Basket/basket";
+import {Overlay} from "../Basket/basket.styled"
 
 export const MenuList = ({ setActiveSection }) => {
   const [menuItems, setMenuitems] = useState([])
@@ -50,7 +51,16 @@ export const MenuList = ({ setActiveSection }) => {
 
           ))}
         </div>
-        {isCartOpen && <Basket cartItems={cartItems} removeItem={removeFromCart} onClose={() => setIsCartOpen(false)} />}
+        {isCartOpen && (
+  <>
+    <Overlay onClick={() => setIsCartOpen(false)} />
+    <Basket
+      cartItems={cartItems}
+      removeItem={removeFromCart}
+      onClose={() => setIsCartOpen(false)}
+    />
+  </>
+)}
       </>
     )
   }

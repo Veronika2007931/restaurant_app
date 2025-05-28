@@ -88,7 +88,7 @@ export const Header1 = ({ setActiveSection }) => {
         <Logo>МІТЕРІЯ</Logo>
       </div>
 
-      <Footer />
+     
     </>
   );
 };

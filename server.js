@@ -6,23 +6,23 @@ const { Sequelize, DataTypes } = require('sequelize');
 
 
 
-// const sequelize = new Sequelize('restaurant_db', 'root', '0951207020', {
-//     host: 'localhost',
-//     dialect: 'mysql',
-//     logging: false
+const sequelize = new Sequelize('restaurant_db', 'root', '0951207020', {
+    host: 'localhost',
+    dialect: 'mysql',
+    logging: false
 
-//  });
-
-const sequelize = new Sequelize('restaurant_db', 'root', 'Vika20082106', {
-host: 'localhost',
-dialect: 'mysql'
-});
-
-const sequelize = new Sequelize('restaurant_db', 'root', '1510sofia2007', {
-
-   host: 'localhost',
-   dialect: 'mysql'
  });
+
+// const sequelize = new Sequelize('restaurant_db', 'root', 'Vika20082106', {
+// host: 'localhost',
+// dialect: 'mysql'
+// });
+
+// const sequelize = new Sequelize('restaurant_db', 'root', '1510sofia2007', {
+
+//    host: 'localhost',
+//    dialect: 'mysql'
+//  });
 
 const MenuItem = sequelize.define('MenuItem', {
     name: {
@@ -48,37 +48,12 @@ const MenuItem = sequelize.define('MenuItem', {
 });
 
 
-const Client = sequelize.define('Client', {
-    name: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    phone: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true
-    }
-});
 
 
-const Reservation = sequelize.define('Reservation', {
-    date: {
-        type: DataTypes.DATEONLY,
-        allowNull: false
-    },
-    time: {
-        type: DataTypes.TIME,
-        allowNull: false
-    },
-    numberOfGuests: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    }
-});
 
 
-Client.hasMany(Reservation);
-Reservation.belongsTo(Client);
+
+
 
 
 const app = express();
@@ -92,14 +67,6 @@ sequelize.sync().then(() => {
 });
 
 
-app.post('/clients', async (req, res) => {
-    try {
-        const client = await Client.create(req.body);
-        res.status(201).json(client);
-    } catch (error) {
-        res.status(400).json({ error: error.message });
-    }
-});
 
 app.post('/menu', async (req, res) => {
     try {
@@ -122,32 +89,6 @@ app.get('/menu', async (req, res) => {
   }
 });
 
-
-app.get('/clients', async (req, res) => {
-    const clients = await Client.findAll();
-    res.json(clients);
-});
-
-
-app.post('/reservations', async (req, res) => {
-    try {
-        const { clientId, date, time, numberOfGuests } = req.body;
-        const reservation = await Reservation.create({
-            ClientId: clientId,
-            date,
-            time,
-            numberOfGuests
-        });
-        res.status(201).json(reservation);
-    } catch (error) {
-        res.status(400).json({ error: error.message });
-    }
-});
-
-app.get('/reservations', async (req, res) => {
-    const reservations = await Reservation.findAll({ include: Client });
-    res.json(reservations);
-});
 
 
 app.listen(4000, () => {
