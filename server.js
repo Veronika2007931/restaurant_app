@@ -13,10 +13,10 @@ const { Sequelize, DataTypes } = require('sequelize');
 
 //  });
 
-// const sequelize = new Sequelize('restaurant_db', 'root', 'Vika20082106', {
-//   host: 'localhost',
-//   dialect: 'mysql'
-// });
+const sequelize = new Sequelize('restaurant_db', 'root', 'Vika20082106', {
+host: 'localhost',
+dialect: 'mysql'
+});
 
 const sequelize = new Sequelize('restaurant_db', 'root', '1510sofia2007', {
 
