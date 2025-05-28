@@ -1,7 +1,23 @@
 import  { useEffect, useState } from "react";
 import { RegisterForm } from "../RegisterForm/RegisterForm";
 import { Footer } from "../Footer/Footer"
-import { HeaderContainer, NavBar, TopBar, NavLink, RightSection, LeftSection, CenterSection, SignUpButton, ReservationButton, IconWrapper, UserIcon, Name, LanguageSelector, Logo, WorkingHours, BottomLef, BottomRigh, SignInButton } from "./Header.styled";
+import { 
+  HeaderContainer, 
+  NavBar, 
+  TopBar, 
+  NavLink, 
+  RightSection, 
+  LeftSection, 
+  CenterSection, 
+  SignUpButton, 
+  ReservationButton, 
+  IconWrapper, 
+  UserIcon, 
+  Name, 
+  LanguageSelector, 
+  Logo, WorkingHours, 
+  BottomLef, BottomRigh, 
+  SignInButton } from "./Header.styled";
 
 export const Header = ({ setActiveSection }) => {
   const [showModal, shown] = useState(false);
