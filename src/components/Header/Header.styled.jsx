@@ -21,35 +21,34 @@ export const TopBar = styled.div`
   border-bottom: 1px solid ${GOLD};
 `;
 
-export const Address = styled.span`
-  text-align: center;
-  transition: color 0.3s ease;
-  &:hover {
-    color: ${GOLD};
-  }
-`;
-
-export const Phone = styled.span`
-  text-align: center;
-  transition: color 0.3s ease;
-  &:hover {
-    color: ${GOLD};
-  }
-`;
-
-export const MainHeader = styled.div`
+export const NavBar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 5%;
   max-width: 1400px;
   margin: 0 auto;
+  position: relative;
 `;
 
-export const LogoContainer = styled.div`
+export const LeftSection = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-left: 50px;
+`;
+
+export const CenterSection = styled.div`
   flex: 1;
   display: flex;
   justify-content: center;
+`;
+
+export const RightSection = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: flex-end;
 `;
 
 export const Logo = styled.h1`
@@ -60,26 +59,21 @@ export const Logo = styled.h1`
   margin: 0;
   text-transform: uppercase;
   transition: color 0.3s ease;
+  cursor: pointer;
+
   &:hover {
     color: ${GOLD};
-    cursor: pointer;
   }
 `;
 
-export const NavContainer = styled.nav`
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  flex: 1;
-`;
-
-export const NavItem = styled.a`
+export const NavLink = styled.a`
   color: #fff;
   font-size: 16px;
   cursor: pointer;
   text-transform: uppercase;
   transition: color 0.3s ease;
   position: relative;
+  margin: 0 10px;
 
   &:hover {
     color: ${GOLD};
@@ -101,16 +95,18 @@ export const NavItem = styled.a`
   }
 `;
 
+
 export const WorkingHours = styled.span`
   color: #fff;
   font-size: 16px;
   transition: color 0.3s ease;
+
   &:hover {
     color: ${GOLD};
   }
 `;
 
-export const ActionButton = styled.button`
+export const ReservationButton = styled.button`
   background: transparent;
   color: #fff;
   border: 1px solid ${GOLD};
@@ -125,6 +121,34 @@ export const ActionButton = styled.button`
     color: ${BURGUNDY};
     box-shadow: 0 0 10px rgba(212, 167, 98, 0.5);
   }
+`;
+
+export const SignInButton = styled(ReservationButton)`
+  padding: 8px 16px;
+`;
+
+export const IconWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: ${GOLD};
+  }
+`;
+
+export const UserIcon = styled.img`
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+`;
+
+export const Name = styled.span`
+  font-size: 16px;
+  color: #fff;
 `;
 
 export const LanguageSelector = styled.span`
@@ -145,31 +169,3 @@ export const LanguageSelector = styled.span`
   }
 `;
 
-export const UserInfo = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #fff;
-  transition: color 0.3s ease;
-
-  &:hover {
-    color: ${GOLD};
-  }
-`;
-
-export const UserIcon = styled.div`
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: ${GOLD};
-  color: ${BURGUNDY};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: scale(1.1);
-  }
-`;
