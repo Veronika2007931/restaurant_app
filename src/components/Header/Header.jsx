@@ -1,68 +1,71 @@
-import React, { useEffect, useState } from "react";
-import { RegisterForm } from "../RegisterForm/RegisterForm";
-import { HeaderContainer, NavBar, TopBar, NavLink, RightSection, SignUpButton, ReservationButton, IconWrapper, UserIcon, Name, LanguageSelector, Logo, WorkingHours, BottomLef, BottomRigh, SignInButton } from "./Header.styled";
+import React, { useState, useEffect } from 'react';
+import { RegisterForm } from '../RegisterForm/RegisterForm';
+import {
+  HeaderContainer,
+  TopBar,
+  Address,
+  Phone,
+  MainHeader,
+  LogoContainer,
+  Logo,
+  NavContainer,
+  NavItem,
+  WorkingHours,
+  ActionButton,
+  LanguageSelector,
+  UserInfo,
+  UserIcon
+} from './Header.styled';
 
-export const Header = ({ setActiveSection }) => {
-  const [showModal, shown] = useState(false);
-  const [account, newAcc] = useState(null);
+export const Header = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [account, setAccount] = useState(null);
 
-  const switchModal = () => {
-    shown(!showModal);
-  };
-
-  const check = () => {
-    const info = JSON.parse(localStorage.getItem("accInfo"));
-    return info ? info.name && info.email && info.password : false;
-  };
+  const toggleModal = () => setShowModal(!showModal);
 
   useEffect(() => {
-    const info = JSON.parse(localStorage.getItem("accInfo"));
-    if (check()) {
-      newAcc(info);
-    }
+    const userData = JSON.parse(localStorage.getItem('user'));
+    if (userData?.name) setAccount(userData);
   }, []);
 
   return (
-    <HeaderContainer>
-      <TopBar>
-        Київ, вул. Велика Васильківська, 114<br />+380 (67) 478 99 38
-      </TopBar>
+    <>
+      <HeaderContainer>
+        <TopBar>
+          <Address>Київ, вул. Берестейський проспект, 37</Address>
+          <Phone>+380 (67) 382 01 74</Phone>
+        </TopBar>
 
-      <NavBar>
-        <Logo>МІТЕРІЯ</Logo>
-        <nav>
-          <NavLink onClick={() => setActiveSection("home")}>ДОСТАВКА </NavLink>
-          <span>|</span>
-          <NavLink onClick={() => setActiveSection("menu")}>МЕНЮ </NavLink>
-          <span>|</span>
-          <NavLink onClick={() => setActiveSection("contacts")}>КОНТАКТИ</NavLink>
-        </nav>
+        <MainHeader>
+          <NavContainer>
+            <NavItem>МЕНЮ</NavItem>
+            <span>|</span>
+            <NavItem>ДОСТАВКА</NavItem>
+            <span>|</span>
+            <NavItem>КОНТАКТИ</NavItem>
+          </NavContainer>
 
-        <RightSection>
-          <WorkingHours>Пн - Нд 11:00–22:00</WorkingHours>
+          <LogoContainer>
+            <Logo>МІТЕРІЯ</Logo>
+          </LogoContainer>
 
-          <ReservationButton>РЕЗЕРВ СТОЛУ</ReservationButton>
+          <NavContainer>
+            <WorkingHours>Пн.-Нд 11.00-22:00</WorkingHours>
+            <ActionButton>РЕЗЕРВ СТОЛУ</ActionButton>
+            {account ? (
+              <UserInfo>
+                <UserIcon>{account.name.charAt(0)}</UserIcon>
+                <span>{account.name}</span>
+              </UserInfo>
+            ) : (
+              <ActionButton onClick={toggleModal}>SIGN IN</ActionButton>
+            )}
+            <LanguageSelector>UA</LanguageSelector>
+          </NavContainer>
+        </MainHeader>
+      </HeaderContainer>
 
-          {account ? (
-            <IconWrapper>
-              <UserIcon src="../Images/free-icon-profile-7710521.png" alt="photo" />
-              <Name>{account.name}</Name>
-            </IconWrapper>
-          ) : (
-            <SignInButton type="button" onClick={switchModal}>
-              Sign in
-            </SignInButton>
-          )}
-
-          <LanguageSelector>UA</LanguageSelector>
-
-          {showModal && (
-            <RegisterForm closeModal={switchModal} regis={newAcc} check={check} />
-          )}
-        </RightSection>
-
-
-      </NavBar>
-    </HeaderContainer>
+      {showModal && <RegisterForm onClose={toggleModal} />}
+    </>
   );
 };
