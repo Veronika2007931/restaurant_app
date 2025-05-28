@@ -5,7 +5,7 @@ const express = require('express');
 const { Sequelize, DataTypes } = require('sequelize');
 
 
-// Настройка подключения к MySQL
+
 const sequelize = new Sequelize('restaurant_db', 'root', '0951207020', {
     host: 'localhost',
     dialect: 'mysql',
@@ -35,7 +35,7 @@ const MenuItem = sequelize.define('MenuItem', {
     }
 });
 
-// Определение модели Клиента
+
 const Client = sequelize.define('Client', {
     name: {
         type: DataTypes.STRING,
@@ -48,7 +48,7 @@ const Client = sequelize.define('Client', {
     }
 });
 
-// Определение модели Бронирования
+
 const Reservation = sequelize.define('Reservation', {
     date: {
         type: DataTypes.DATEONLY,
@@ -64,22 +64,22 @@ const Reservation = sequelize.define('Reservation', {
     }
 });
 
-// Связь: один клиент — много бронирований
+
 Client.hasMany(Reservation);
 Reservation.belongsTo(Client);
 
-// Инициализация Express
+
 const app = express();
 app.use(express.json());
 
-// Синхронизация с БД
+
 sequelize.sync().then(() => {
     console.log('База данных синхронизирована');
 }).catch(err => {
     console.error('Ошибка подключения к базе:', err);
 });
 
-// Маршрут: добавление клиента
+
 app.post('/clients', async (req, res) => {
     try {
         const client = await Client.create(req.body);
@@ -110,13 +110,13 @@ app.get('/menu', async (req, res) => {
   }
 });
 
-// Маршрут: список клиентов
+
 app.get('/clients', async (req, res) => {
     const clients = await Client.findAll();
     res.json(clients);
 });
 
-// Маршрут: добавление бронирования
+
 app.post('/reservations', async (req, res) => {
     try {
         const { clientId, date, time, numberOfGuests } = req.body;
@@ -132,13 +132,12 @@ app.post('/reservations', async (req, res) => {
     }
 });
 
-// Маршрут: список бронирований с клиентами
 app.get('/reservations', async (req, res) => {
     const reservations = await Reservation.findAll({ include: Client });
     res.json(reservations);
 });
 
-// Запуск сервера
+
 app.listen(4000, () => {
   console.log('Сервер запущен на http://localhost:4000');
 });
@@ -147,7 +146,7 @@ app.delete('/menu/:id', async (req, res) => {
   try {
     const deleted = await MenuItem.destroy({ where: { id: req.params.id } });
     if (deleted) {
-      res.status(204).send(); // Успішно видалено
+      res.status(204).send();
     } else {
       res.status(404).json({ error: "Item not found" });
     }
