@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import {RegisterForm} from "../RegisterForm/RegisterForm";
-import { HeaderContainer, NavBar, TopBar,NavLink, RightSection, ReservationButton, IconWrapper, UserIcon, Name, LanguageSelector, Logo, WorkingHours } from "./Header.styled";
+import { RegisterForm } from "../RegisterForm/RegisterForm";
+import { HeaderContainer, NavBar, TopBar, NavLink, RightSection, SignUpButton, ReservationButton, IconWrapper, UserIcon, Name, LanguageSelector, Logo, WorkingHours, BottomLef, BottomRigh, SignInButton } from "./Header.styled";
 
 export const Header = ({ setActiveSection }) => {
   const [showModal, shown] = useState(false);
@@ -31,13 +31,16 @@ export const Header = ({ setActiveSection }) => {
       <NavBar>
         <Logo>МІТЕРІЯ</Logo>
         <nav>
-          <NavLink onClick={() => setActiveSection("home")}>ДОСТАВКА</NavLink>
-          <NavLink onClick={() => setActiveSection("menu")}>МЕНЮ</NavLink>
+          <NavLink onClick={() => setActiveSection("home")}>ДОСТАВКА </NavLink>
+          <span>|</span>
+          <NavLink onClick={() => setActiveSection("menu")}>МЕНЮ </NavLink>
+          <span>|</span>
           <NavLink onClick={() => setActiveSection("contacts")}>КОНТАКТИ</NavLink>
         </nav>
 
         <RightSection>
           <WorkingHours>Пн - Нд 11:00–22:00</WorkingHours>
+
           <ReservationButton>РЕЗЕРВ СТОЛУ</ReservationButton>
 
           {account ? (
@@ -46,17 +49,19 @@ export const Header = ({ setActiveSection }) => {
               <Name>{account.name}</Name>
             </IconWrapper>
           ) : (
-            <ReservationButton type="button" onClick={switchModal}>
-              Sign up
-            </ReservationButton>
+            <SignInButton type="button" onClick={switchModal}>
+              Sign in
+            </SignInButton>
           )}
+
+          <LanguageSelector>UA</LanguageSelector>
 
           {showModal && (
             <RegisterForm closeModal={switchModal} regis={newAcc} check={check} />
           )}
-
-          <LanguageSelector>UA</LanguageSelector>
         </RightSection>
+
+
       </NavBar>
     </HeaderContainer>
   );
