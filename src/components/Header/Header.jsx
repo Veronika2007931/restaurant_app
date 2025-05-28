@@ -1,6 +1,4 @@
 
-import React, { useState, useEffect } from 'react';
-import { RegisterForm } from '../RegisterForm/RegisterForm';
 import {
   HeaderContainer,
   TopBar,
@@ -73,10 +71,6 @@ export const Header = () => {
 
 
       {showModal && <RegisterForm onClose={toggleModal} />}
-
-      </NavBar>
-      <Footer/>
-    </HeaderContainer>
 
   );
 };

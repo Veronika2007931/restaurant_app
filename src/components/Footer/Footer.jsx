@@ -4,6 +4,7 @@ export const Footer = () => {
 
   return (
     <>
-    {/* тут вся розмітка */}
+    <p></p>
     </>
-
+  )
+}
