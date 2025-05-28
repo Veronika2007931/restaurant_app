@@ -3,10 +3,14 @@ import React, { useState } from "react";
 import { Header } from "./Header/Header";
 import { MenuList } from "./Menu/MenuList";
 import { Contacts } from "./Contacts/contacts"
-import {Delivery} from "./Delivery/delivery"
+import { Delivery } from "./Delivery/delivery"
+
 
 export function App() {
   const [activeSection, setActiveSection] = useState("home");
+
+
+ 
 
   return (
     <>
@@ -23,6 +27,8 @@ export function App() {
         {activeSection === "delivery" && (
           <Delivery/>
         )}
+
+
       </main>
     </>
   );

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { RegisterForm } from "../RegisterForm/RegisterForm";
 import { Footer } from "../Footer/Footer"
-import { HeaderContainer, NavBar, TopBar, NavLink, RightSection, LeftSection, CenterSection, SignUpButton, ReservationButton, IconWrapper, UserIcon, Name, LanguageSelector, Logo, WorkingHours, BottomLef, BottomRigh, SignInButton } from "./Header.styled";
+import { HeaderContainer, NavBar, TopBar, NavLink, RightSection, LeftSection, CenterSection, ReservationButton, IconWrapper, UserIcon, Name, LanguageSelector, Logo, WorkingHours, SignInButton } from "./Header.styled";
 
 export const Header = ({ setActiveSection }) => {
   const [showModal, shown] = useState(false);
@@ -31,7 +31,7 @@ export const Header = ({ setActiveSection }) => {
 
       <NavBar>
         <LeftSection>
-          <NavLink onClick={() => setActiveSection("home")}>ДОСТАВКА</NavLink>
+          <NavLink onClick={() => setActiveSection("delivery")}>ДОСТАВКА</NavLink>
           <span>|</span>
           <NavLink onClick={() => setActiveSection("menu")}>МЕНЮ</NavLink>
           <span>|</span>
@@ -47,7 +47,7 @@ export const Header = ({ setActiveSection }) => {
           <ReservationButton>РЕЗЕРВ СТОЛУ</ReservationButton>
           {account ? (
             <IconWrapper>
-              <UserIcon src="../Images/free-icon-profile-7710521.png" alt="photo" />
+              <UserIcon src="../Images/user-circle-svgrepo-com (1).png" alt="photo" />
               <Name>{account.name}</Name>
             </IconWrapper>
           ) : (
