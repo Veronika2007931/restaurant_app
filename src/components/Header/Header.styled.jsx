@@ -1,69 +1,99 @@
 import styled from 'styled-components';
 
+const GOLD = '#D4AF37';
+const BURGUNDY = '#5B0707';
+
 export const HeaderContainer = styled.header`
-  font-family: 'Arial', sans-serif;
   width: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 1000;
-  background-color: #1d1210; /* темний фон */
-  color: #fff;
-  display: flex;
-  flex-direction: column;
+  background-color: ${BURGUNDY};
+  color: white;
+  font-family: 'Arial', sans-serif;
 `;
 
 export const TopBar = styled.div`
-  background-color: #1d1210;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 10px 0;
+  background-color: ${BURGUNDY};
   color: #fff;
-  padding: 5px 0;
-  text-align: center;
   font-size: 14px;
-  line-height: 1.4;
-  border-bottom: 1px solid #3a2e2a;
+  border-bottom: 1px solid ${GOLD};
 `;
 
-export const NavBar = styled.nav`
+export const Address = styled.span`
+  text-align: center;
+  transition: color 0.3s ease;
+  &:hover {
+    color: ${GOLD};
+  }
+`;
+
+export const Phone = styled.span`
+  text-align: center;
+  transition: color 0.3s ease;
+  &:hover {
+    color: ${GOLD};
+  }
+`;
+
+export const MainHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 5%;
+  padding: 20px 5%;
   max-width: 1400px;
   margin: 0 auto;
 `;
 
-export const Logo = styled.h1`
-  font-size: 40px;
-  font-weight: 600;
-  color: #fff;
-  letter-spacing: 6px;
-  text-transform: uppercase;
-  margin: 0;
+export const LogoContainer = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
 `;
 
-export const NavLink = styled.a`
-  margin: 0 15px;
-  position: relative;
-  font-size: 14px;
-  font-weight: 500;
+export const Logo = styled.h1`
+  font-size: 36px;
+  font-weight: 700;
   color: #fff;
+  letter-spacing: 3px;
+  margin: 0;
   text-transform: uppercase;
+  transition: color 0.3s ease;
+  &:hover {
+    color: ${GOLD};
+    cursor: pointer;
+  }
+`;
+
+export const NavContainer = styled.nav`
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex: 1;
+`;
+
+export const NavItem = styled.a`
+  color: #fff;
+  font-size: 16px;
   cursor: pointer;
-  padding: 6px 10px;
-  transition: color 0.3s;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  position: relative;
 
   &:hover {
-    color: #d4a762;
+    color: ${GOLD};
   }
 
   &::after {
     content: '';
     position: absolute;
-    bottom: -3px;
+    bottom: -5px;
     left: 0;
-    width: 0%;
+    width: 0;
     height: 2px;
-    background-color: #d4a762;
-    transition: width 0.3s;
+    background-color: ${GOLD};
+    transition: width 0.3s ease;
   }
 
   &:hover::after {
@@ -72,103 +102,74 @@ export const NavLink = styled.a`
 `;
 
 export const WorkingHours = styled.span`
-  font-size: 13px;
-  color: #d4a762;
-  margin-right: 20px;
-`;
-
-export const RightSection = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 16px;
   color: #fff;
-`;
-
-
-export const ReservationButton = styled.button`
-  background-color: transparent;
-  color: #d4a762;
-  border: 1px solid #d4a762;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 14px;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-
+  font-size: 16px;
+  transition: color 0.3s ease;
   &:hover {
-    background-color: #d4a762;
-    color: #1d1210;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(212, 167, 98, 0.3);
+    color: ${GOLD};
   }
 `;
 
-
-export const SignInButton = styled.button`
-  background-color: transparent;
-  color: #d4a762;
-  border: 1px solid #d4a762;
-  padding: 8px 16px;
+export const ActionButton = styled.button`
+  background: transparent;
+  color: #fff;
+  border: 1px solid ${GOLD};
+  padding: 8px 20px;
   border-radius: 4px;
+  font-size: 16px;
   cursor: pointer;
-  font-weight: 600;
-  font-size: 14px;
-  text-transform: uppercase;
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: #d4a762;
-    color: #1d1210;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(212, 167, 98, 0.3);
+    background: ${GOLD};
+    color: ${BURGUNDY};
+    box-shadow: 0 0 10px rgba(212, 167, 98, 0.5);
   }
 `;
-
 
 export const LanguageSelector = styled.span`
-  cursor: pointer;
-  font-weight: 500;
-  position: relative;
-  padding-right: 15px;
   color: #fff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  position: relative;
 
   &::after {
     content: '▼';
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
     font-size: 10px;
+    margin-left: 5px;
+    color: ${GOLD};
   }
 
   &:hover {
-    color: #d4a762;
+    color: ${GOLD};
   }
 `;
 
-export const IconWrapper = styled.div`
+export const UserInfo = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
-  min-width: 50px;
+  gap: 8px;
   color: #fff;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: ${GOLD};
+  }
 `;
 
-export const UserIcon = styled.img`
-  width: 36px;
-  height: 36px;
+export const UserIcon = styled.div`
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  object-fit: cover;
-  border: 1px solid #d4a762;
-`;
+  background: ${GOLD};
+  color: ${BURGUNDY};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  transition: transform 0.3s ease;
 
-export const Name = styled.span`
-  font-size: 13px;
-  font-weight: 500;
-  margin-top: 4px;
-  color: #d4a762;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
