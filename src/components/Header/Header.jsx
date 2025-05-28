@@ -17,7 +17,6 @@ import {
   Name,
   LanguageSelector,
   Logo, WorkingHours,
-  BottomLef, BottomRigh,
   SignInButton } from "./Header.styled";
 
 export const Header = ({ setActiveSection }) => {
