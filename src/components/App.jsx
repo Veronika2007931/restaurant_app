@@ -14,7 +14,7 @@ export function App() {
       {activeSection === "home" && <Header setActiveSection={setActiveSection} />}
 
       <main style={{ padding: "20px" }}>
-        {activeSection === "menu" && <MenuList />}
+        {activeSection === "menu" && <MenuList setActiveSection={setActiveSection}/>}
 
         {activeSection === "contacts" && (
           <Contacts/>

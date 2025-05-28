@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { RegisterForm } from '../RegisterForm/RegisterForm';
 import {
@@ -16,6 +17,11 @@ import {
   UserInfo,
   UserIcon
 } from './Header.styled';
+import React, { useEffect, useState } from "react";
+import { RegisterForm } from "../RegisterForm/RegisterForm";
+import {Footer} from "../Footer/Footer"
+import { HeaderContainer, NavBar, TopBar, NavLink, RightSection, SignUpButton, ReservationButton, IconWrapper, UserIcon, Name, LanguageSelector, Logo, WorkingHours, BottomLef, BottomRigh, SignInButton } from "./Header.styled";
+
 
 export const Header = () => {
   const [showModal, setShowModal] = useState(false);
@@ -65,7 +71,12 @@ export const Header = () => {
         </MainHeader>
       </HeaderContainer>
 
+
       {showModal && <RegisterForm onClose={toggleModal} />}
-    </>
+
+      </NavBar>
+      <Footer/>
+    </HeaderContainer>
+
   );
 };
