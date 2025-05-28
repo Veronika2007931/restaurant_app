@@ -18,11 +18,11 @@ host: 'localhost',
 dialect: 'mysql'
 });
 
-// const sequelize = new Sequelize('restaurant_db', 'root', '1510sofia2007', {
+const sequelize = new Sequelize('restaurant_db', 'root', '1510sofia2007', {
 
-//   host: 'localhost',
-//   dialect: 'mysql'
-// });
+   host: 'localhost',
+   dialect: 'mysql'
+ });
 
 const MenuItem = sequelize.define('MenuItem', {
     name: {

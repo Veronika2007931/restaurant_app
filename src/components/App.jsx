@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { Header1 } from "./Header1/Header1";        
-import { Header2 } from "./Header2/Header2";      
+import { Header1 } from "./Header1/Header1";
+import { Header2 } from "./Header2/Header2";
 import { MenuList } from "./Menu/MenuList";
 import { Contacts } from "./Contacts/contacts";
 import { Delivery } from "./Delivery/delivery";
 
 export function App() {
   const [activeSection, setActiveSection] = useState("home");
+
+
+
 
   return (
     <>
