@@ -25,6 +25,8 @@ export const MainContent = styled.main`
 `;
 
 export const StyledFooter = styled.footer`
+
+  flex: 1; 
   flex-shrink: 0; 
   background-color: #000;
   color: #fff;
@@ -32,4 +34,5 @@ export const StyledFooter = styled.footer`
   margin: 0;
   padding: 20px 0;
   box-sizing: border-box;
+
 `;

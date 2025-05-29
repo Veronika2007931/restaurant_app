@@ -15,10 +15,28 @@ export const FormOverlay = styled.div`
 
 export const FormContainer = styled.div`
   background: white;
-  padding: 2rem;
+  padding: 1.3rem;
   border-radius: 8px;
   width: 100%;
   max-width: 400px;
+  position: relative;
+`;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 24px;
+  background: transparent;
+  border: none;
+  color: grey;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    color: #d00;
+    transform: scale(1.2);
+  }
 `;
 
 export const StyledForm = styled.form`
@@ -32,18 +50,29 @@ export const StyledForm = styled.form`
   }
 `;
 
+export const Text = styled.p`
+  color: #d4a762;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding-top: 20px;
+  font-size: 32px;
+  font-weight: bold;
+`;
+
 export const FormLabel = styled.label`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
   font-weight: 500;
   margin-bottom: 10px;
+  margin-right: 40px;
+  color: #1c1717;
 `;
 
 export const FormInput = styled.input`
   padding: 0.5rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 30px;
 `;
 
 export const FormButton = styled.button`
@@ -51,12 +80,17 @@ export const FormButton = styled.button`
   background-color: #d4a762;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 40px;
   cursor: pointer;
   font-weight: bold;
-  margin-top: 1rem;
+  margin: 0 150px 0 150px;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
 
-
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.9),
+                0 0 40px rgba(212, 175, 55, 0.6);
 `;
 
 export const Ul = styled.ul`

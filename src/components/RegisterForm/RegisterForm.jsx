@@ -1,4 +1,4 @@
-import { FormOverlay, FormContainer, StyledForm,FormLabel, FormInput, FormButton, Ul } from "./RegisterForm.styled"
+import { FormOverlay, FormContainer, CloseButton, StyledForm, Text, FormLabel, FormInput, FormButton, Ul } from "./RegisterForm.styled"
 import { useEffect } from "react"
 
 
@@ -50,26 +50,28 @@ export const RegisterForm = ({ closeModal, regis, check }) => {
 
       <FormOverlay onClick={closeOnOverlay}>
         <FormContainer>
+          <CloseButton onClick={closeModal}>&times;</CloseButton>
            <StyledForm onSubmit={signUp}>
+            <Text>Форма реєстрації:</Text>
           <Ul>
             <li>
-              <FormLabel >UserName
+              <FormLabel> Ім'я користувача
                 <FormInput type="text" name="name" placeholder="Username" />
               </FormLabel></li>
             <li>
-              <FormLabel>Email
+              <FormLabel>Електронна пошта
                 <FormInput type="text" name="email" placeholder="Email" />
               </FormLabel>
             </li>
             <li>
-              <FormLabel >Password
+              <FormLabel>Пароль
                 <FormInput type="password" name="password" placeholder="Password" />
                 </FormLabel>
                 
 
             </li>
           </Ul>
-          <FormButton type="submit">Sign up</FormButton>
+          <FormButton type="submit">Sign in</FormButton>
         </StyledForm>
        </FormContainer>
       </FormOverlay>
