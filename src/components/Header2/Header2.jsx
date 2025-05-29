@@ -44,10 +44,10 @@ export const Header2 = ({ setActiveSection }) => {
         <HeaderContainer>
             <TopBar>
                 <TopBarContent>
-            <span>Київ, вул. Велика Васильківська, 114</span>
-             <span>📞 +380 (44) 204 91 00</span>
-          </TopBarContent>
-           <TopBarContent>🕒 Пн - Нд: 11:00–22:00</TopBarContent>
+                    <span>📍Київ, вул. Берестейський проспект, 37</span>
+                    <span>📞+380 (44) 204 91 00</span>
+                </TopBarContent>
+                <TopBarTime>🕒Пн - Нд: 11:00–22:00</TopBarTime>
             </TopBar>
 
             <NavBar>

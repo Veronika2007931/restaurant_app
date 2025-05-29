@@ -31,7 +31,7 @@ export const TopBarContent = styled.div`
   display: flex;
   gap: 40px;
   padding: 10px 0;
-  margin-left: 75px; /* ← змінюй це значення */
+  margin-left: 75px; 
 `;
 
 export const TopBarTime = styled.div`

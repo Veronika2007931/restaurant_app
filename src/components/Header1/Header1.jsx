@@ -48,10 +48,10 @@ export const Header1 = ({ setActiveSection }) => {
       <HeaderContainer>
         <TopBar>
           <TopBarContent>
-            <span>Київ, вул. Велика Васильківська, 114</span>
+            <span>Київ, вул. Берестейський проспект, 37</span>
              <span>📞 +380 (44) 204 91 00</span>
           </TopBarContent>
-           <TopBarContent>🕒 Пн - Нд: 11:00–22:00</TopBarContent>
+           <TopBarTime>🕒 Пн - Нд: 11:00–22:00</TopBarTime>
 
 
         </TopBar>
@@ -85,7 +85,6 @@ export const Header1 = ({ setActiveSection }) => {
         </NavBar>
       </HeaderContainer>
 
-      {/* Логотип посередині екрану */}
       <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
         <Logo>МІТЕРІЯ</Logo>
       </div>
