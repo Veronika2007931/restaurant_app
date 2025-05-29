@@ -1,28 +1,25 @@
-
-
-
 const express = require('express');
 const { Sequelize, DataTypes } = require('sequelize');
 
 
 
-const sequelize = new Sequelize('restaurant_db', 'root', '0951207020', {
-    host: 'localhost',
-    dialect: 'mysql',
-    logging: false
+// const sequelize = new Sequelize('restaurant_db', 'root', '0951207020', {
+//     host: 'localhost',
+//     dialect: 'mysql',
+//     logging: false
 
- });
+//  });
 
 // const sequelize = new Sequelize('restaurant_db', 'root', 'Vika20082106', {
 // host: 'localhost',
 // dialect: 'mysql'
 // });
 
-// const sequelize = new Sequelize('restaurant_db', 'root', '1510sofia2007', {
+ const sequelize = new Sequelize('restaurant_db', 'root', '1510sofia2007', {
 
-//    host: 'localhost',
-//    dialect: 'mysql'
-//  });
+    host: 'localhost',
+    dialect: 'mysql'
+  });
 
 const MenuItem = sequelize.define('MenuItem', {
     name: {
@@ -104,7 +101,6 @@ const categorizeItem = (name) => {
 
   return "Інше";
 };
-
 
 
 

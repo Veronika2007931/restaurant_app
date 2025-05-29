@@ -17,7 +17,7 @@ export const Breadcrumbs = styled.div`
   margin-bottom: 20px;
   font-size: 20px;
   font-family: Italic;
-   margin-left: 55px;
+  margin-left: 55px;
 `;
 
 export const BreadcrumbLink = styled.a`

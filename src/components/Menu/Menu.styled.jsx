@@ -6,12 +6,14 @@ export const MenuContainer = styled.div`
   gap: 2rem;
   padding: 2rem;
   font-family: Italic;
+  background-color: #fff9e6;
 `;
 
 export const CategorySection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 35px;
 `;
 
 export const CategoryTitle = styled.h2`
@@ -73,37 +75,53 @@ export const CategoryList = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
-  margin: 1.5rem 0;
+  gap: 1rem;
+  margin-top: 1.5rem;
 `;
 
 export const CategoryButton = styled.button`
   background: none;
-  font-family: Italic;
   border: none;
   font-size: 1rem;
-  color: ${({ active }) => (active ? "#D4AF37" : "#000")};
-  border-bottom: ${({ active }) =>
-    active ? "2px solid #D4AF37" : "2px solid transparent"};
-  padding-bottom: 5px;
+  color: #000;
+  border-bottom: 2px solid transparent;
   cursor: pointer;
-
-  &:hover {
-    color: #D4AF37;
-  }
 `;
 
 export const MenuTitle = styled.h2`
   text-align: center;
-  margin-top: 1rem;
+  margin: 15px 0 0 0;
   font-family: Italic;
   font-size: 2.5rem;
   font-weight: 500;
   color: #333;
-  letter-spacing: 0.05em;
+`;
 
-  @media (max-width: 768px) {
-    font-size: 2rem;
+export const Cart = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding-right: 95px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  padding-top: 32px;
+
+  img {
+    width: 32px;
+    height: 32px;
   }
 `;
 
+export const Breadcrumbs = styled.div`
+  color: #555;
+  font-size: 20px;
+  font-family: Italic;
+  margin-left: 107px;
+  padding-top: 32px;
+  margin-bottom: 0;
+`;
+
+export const BreadcrumbLink = styled.a`
+  text-decoration: none;
+  color: #333;
+`;

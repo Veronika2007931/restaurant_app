@@ -7,32 +7,18 @@ export const AppContainer = styled.div`
   width: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; 
-  position: relative; 
+  overflow-x: clip; /* дозволяє sticky працювати */
+  position: relative;
 `;
 
 export const MainContent = styled.main`
-  flex: 1 0 auto; 
-  width: 100%;
-  margin: 0 auto;
-  padding: 0;
-  max-width: 1440px; 
-  box-sizing: border-box; 
-
-  @media (max-width: 1480px) {
-    padding: 0 20px; 
-  }
+  flex: 1;
 `;
 
 export const StyledFooter = styled.footer`
-
-  flex: 1; 
-  flex-shrink: 0; 
+  flex: 1;
   background-color: #000;
   color: #fff;
   width: 100%;
-  margin: 0;
-  padding: 20px 0;
-  box-sizing: border-box;
-
 `;
+
