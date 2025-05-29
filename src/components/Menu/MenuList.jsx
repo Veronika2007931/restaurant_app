@@ -3,6 +3,7 @@ import axios from "axios";
 import { Basket } from "components/Basket/basket";
 import { Overlay } from "../Basket/basket.styled";
 import {
+  Cart,
   MenuContainer,
   CategorySection,
   CategoryTitle,
@@ -10,8 +11,14 @@ import {
   MenuItem,
   MenuTitle,
   CategoryList,
-  CategoryButton
+  CategoryButton,
+  Breadcrumbs,
+  BreadcrumbLink,
+  TopRow,
+  MenuWrapper
 } from "./Menu.styled";
+import basket from '../Images/basket.png';
+
 export const MenuList = ({ setActiveSection }) => {
   const [menuItems, setMenuItems] = useState([]);
   const [cartItems, setCartItems] = useState([]);
@@ -19,7 +26,7 @@ export const MenuList = ({ setActiveSection }) => {
 
 
 
-    useEffect(() => {
+  useEffect(() => {
     axios.get('/menu')
       .then(responce => setMenuItems(responce.data))
       .catch(error => console.error("Помилка отримання меню"))
@@ -35,53 +42,58 @@ export const MenuList = ({ setActiveSection }) => {
     );
   };
 
-const groupedItems = menuItems.reduce((acc, item) => {
-  if (!acc[item.category]) acc[item.category] = [];
-  acc[item.category].push(item);
-  return acc;
-}, {});
+  const groupedItems = menuItems.reduce((acc, item) => {
+    if (!acc[item.category]) acc[item.category] = [];
+    acc[item.category].push(item);
+    return acc;
+  }, {});
   return (
-    <>
-      <button onClick={() => setIsCartOpen(true)}>
-        🛒 Кошик
-      </button>
-      <button onClick={() => setActiveSection("home")}>На головну</button>
+    <MenuWrapper>
+      <TopRow>
+        <Breadcrumbs>
+          <BreadcrumbLink href="/">🏠</BreadcrumbLink> / <span>Меню</span>
+        </Breadcrumbs>
+        <Cart onClick={() => setIsCartOpen(true)}>
+          <img src={basket} alt="Кошик" />
+        </Cart>
+      </TopRow>
+
 
       <MenuTitle>МЕНЮ</MenuTitle>
 
-     <CategoryList>
-  {Object.keys(groupedItems).map((category) => (
-    <CategoryButton
-      key={category}
-      onClick={() => {
-        const el = document.getElementById(category.toLowerCase().replace(/\s/g, "-"));
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-      }}
-    >
-      {category}
-    </CategoryButton>
-  ))}
-</CategoryList>
-
-<MenuContainer>
-  {Object.entries(groupedItems).map(([category, items]) => (
-    <CategorySection key={category} id={category.toLowerCase().replace(/\s/g, "-")}>
-      <CategoryTitle>{category}</CategoryTitle>
-      <ItemsRow>
-        {items.map((item, index) => (
-          <MenuItem key={index}>
-            {item.imageUrl && <img src={item.imageUrl} alt={item.name} />}
-            <h3>{item.name}</h3>
-            <p>{item.description}</p>
-            <p>Ціна: {item.price} грн</p>
-            <p>Вага: {item.weight} г</p>
-            <button onClick={() => addToCart(item)}>Замовити</button>
-          </MenuItem>
+      <CategoryList>
+        {Object.keys(groupedItems).map((category) => (
+          <CategoryButton
+            key={category}
+            onClick={() => {
+              const el = document.getElementById(category.toLowerCase().replace(/\s/g, "-"));
+              if (el) el.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            {category}
+          </CategoryButton>
         ))}
-      </ItemsRow>
-    </CategorySection>
-  ))}
-</MenuContainer>
+      </CategoryList>
+
+      <MenuContainer>
+        {Object.entries(groupedItems).map(([category, items]) => (
+          <CategorySection key={category} id={category.toLowerCase().replace(/\s/g, "-")}>
+            <CategoryTitle>{category}</CategoryTitle>
+            <ItemsRow>
+              {items.map((item, index) => (
+                <MenuItem key={index}>
+                  {item.imageUrl && <img src={item.imageUrl} alt={item.name} />}
+                  <h3>{item.name}</h3>
+                  <p>{item.description}</p>
+                  <p>Ціна: {item.price} грн</p>
+                  <p>Вага: {item.weight} г</p>
+                  <button onClick={() => addToCart(item)}>Замовити</button>
+                </MenuItem>
+              ))}
+            </ItemsRow>
+          </CategorySection>
+        ))}
+      </MenuContainer>
       {isCartOpen && (
         <>
           <Overlay onClick={() => setIsCartOpen(false)} />
@@ -92,6 +104,6 @@ const groupedItems = menuItems.reduce((acc, item) => {
           />
         </>
       )}
-    </>
+    </MenuWrapper>
   );
 };

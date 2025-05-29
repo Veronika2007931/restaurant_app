@@ -31,7 +31,7 @@ export const ItemsRow = styled.div`
 `;
 
 export const MenuItem = styled.div`
-  background-color: #fff;
+  background-color: #fff; /* Залишити білий фон для карток */
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 1rem;
@@ -59,13 +59,19 @@ export const MenuItem = styled.div`
 
   button {
     margin-top: 1rem;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
     border: none;
     background-color: #D4AF37;
     font-family: Italic;
     color: white;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #c29c30;
+    }
   }
 `;
 
@@ -81,7 +87,9 @@ export const CategoryButton = styled.button`
   background: none;
   font-family: Italic;
   border: none;
-  font-size: 1rem;
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
   color: ${({ active }) => (active ? "#D4AF37" : "#000")};
   border-bottom: ${({ active }) =>
     active ? "2px solid #D4AF37" : "2px solid transparent"};
@@ -101,9 +109,43 @@ export const MenuTitle = styled.h2`
   font-weight: 500;
   color: #333;
   letter-spacing: 0.05em;
+  /* Видалити background-color */
 
   @media (max-width: 768px) {
     font-size: 2rem;
   }
 `;
 
+export const Cart = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  img {
+    width: 32px;
+    height: 32px;
+  }
+`;
+
+export const Breadcrumbs = styled.div`
+  color: #555;
+  font-size: 20px;
+  font-family: Italic;
+`;
+
+export const BreadcrumbLink = styled.a`
+  text-decoration: none;
+  color: #333;
+`;
+
+export const TopRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 3rem;
+`;
+export const MenuWrapper = styled.div`
+  background-color: #fff9e6;
+  min-height: 100vh;
+  padding: 1rem 2rem;
+`;
