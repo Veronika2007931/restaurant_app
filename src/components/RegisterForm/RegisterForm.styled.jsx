@@ -69,9 +69,23 @@ export const FormLabel = styled.label`
 `;
 
 export const FormInput = styled.input`
+  margin: 5px;
+  width: 100%;
+  font-size: 1rem;
+  outline: none;
+  font-family: inherit;
+  box-sizing: border-box;
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 30px;
+
+  &::placeholder {
+    color: #aaa;
+  }
+
+  &:focus {
+    border-color: #D4AF37;
+  }
 `;
 
 export const FormButton = styled.button`

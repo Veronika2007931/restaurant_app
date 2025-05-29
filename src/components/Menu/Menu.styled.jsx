@@ -105,7 +105,8 @@ export const MenuTitle = styled.h2`
   font-size: 2.5rem;
   font-weight: 500;
   color: #333;
-
+  position: absolute;
+  left: 45%;
 `;
 
 export const Cart = styled.button`
@@ -132,10 +133,9 @@ export const Breadcrumbs = styled.div`
   color: #555;
   font-size: 20px;
   font-family: Italic;
-  margin-left: 107px;
-  padding-top: 32px;
+  margin-left: 115px;
+  margin-top: 27px;
   margin-bottom: 0;
-
 `;
 
 export const BreadcrumbLink = styled.a`
@@ -147,10 +147,9 @@ export const TopRow = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1rem 3rem;
+  
 `;
 export const MenuWrapper = styled.div`
   background-color: #fff9e6;
   min-height: 100vh;
-  padding: 1rem 2rem;
 `;

@@ -8,7 +8,7 @@ export const AppContainer = styled.div`
   width: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: clip; /* дозволяє sticky працювати */
+  overflow-x: clip;
   position: relative;
 `;
 

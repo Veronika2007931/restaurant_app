@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import TableImage from '../Images/photo_5314650398621038594_y.jpg';
-import {Overlay, Container, Input, Label, Select, Title, SubmitButton, SuccessToast} from "./reservatiomn.styled"
+import {Overlay, Container, CloseButton, Input, Label, Select, Title, SubmitButton, SuccessToast} from "./reservatiomn.styled"
+import { CenterSection } from "components/Header2/Header2.styled";
 export const Reservation = ({ closeModal }) => {
 
   const [showSuccess, setShowSuccess] = useState(false);
@@ -37,10 +38,11 @@ export const Reservation = ({ closeModal }) => {
 
   return (
  <Overlay onClick={closeOnOverlay}>
-  <Container onClick={(e) => e.stopPropagation()}>
+  <Container>
+    <CloseButton onClick={closeModal}>&times;</CloseButton>
     <Title>Резерв столу</Title>
 
-        <img src={TableImage} alt="tables" style={{ width: '100%', borderRadius: '12px', marginBottom: '1.5rem' }} />
+        <img src={TableImage} alt="tables" style={{ width: '100%', borderRadius: '12px', marginBottom: '20px'}} />
 
         <form onSubmit={handleSubmit}>
 
@@ -52,13 +54,7 @@ export const Reservation = ({ closeModal }) => {
     <Label>
       Час бронювання
       <Select name="reservationTime">
-        <option value="">Оберіть час</option>
-        <option value="09:00">09:00</option>
-        <option value="09:30">09:30</option>
-        <option value="10:00">10:00</option>
-        <option value="10:30">10:30</option>
-        <option value="11:00">11:00</option>
-        <option value="11:30">11:30</option>
+        <option>Оберіть час</option>
         <option value="12:00">12:00</option>
         <option value="12:30">12:30</option>
         <option value="13:00">13:00</option>
@@ -77,9 +73,6 @@ export const Reservation = ({ closeModal }) => {
         <option value="19:30">19:30</option>
         <option value="20:00">20:00</option>
         <option value="20:30">20:30</option>
-        <option value="21:00">21:00</option>
-        <option value="21:30">21:30</option>
-        <option value="22:00">22:00</option>
       </Select>
     </Label>
 

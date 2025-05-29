@@ -17,41 +17,57 @@ export const Overlay = styled.div`
 export const Container = styled.div`
   background-color: white;
   border-radius: 16px;
-  padding: 2.5rem;
+  padding: 1.3rem;
   max-width: 500px;
   width: 100%;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
+  position: relative;
+`;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 24px;
+  background: transparent;
+  border: none;
+  color: grey;
+  cursor: pointer;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #d00;
+  }
 `;
 
 export const Title = styled.h3`
- margin: 10px;
-  font-size: 2rem;
+  color: #d4a762;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 20px 0;
+  font-size: 32px;
   font-weight: bold;
-  text-align: center;
-  color: #D4AF37;
-  margin-bottom: 1.5rem;
-  line-height: 1.3;
 `;
 
 export const Label = styled.label`
   display: block;
-  font-weight: 600;
-  margin-bottom: 1rem;
+  font-weight: 500;
   font-size: 1rem;
   color: #333;
+  margin: 5px 80px 10px 50px;
 `;
 
 export const Input = styled.input`
-margin:10px;
+  margin: 10px 0 0 0;
   width: 100%;
-  padding: 0.5rem 1rem;
   font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 999px;
   outline: none;
   font-family: inherit;
   box-sizing: border-box;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 30px;
 
   &::placeholder {
     color: #aaa;
@@ -63,7 +79,7 @@ margin:10px;
 `;
 
 export const Select = styled.select`
-  margin:10px;
+  margin: 10px 0 0 0;
   width: 100%;
   padding: 0.5rem 1rem;
   font-size: 1rem;
@@ -81,23 +97,21 @@ export const Select = styled.select`
 `;
 
 export const SubmitButton = styled.button`
-  margin-top: 2rem;
-  padding: 0.7rem 2rem;
-  background-color: #D4AF37;
+  padding: 1rem;
+  background-color: #d4a762;
   color: white;
-  font-weight: bold;
   border: none;
-  border-radius: 999px;
-  font-size: 1rem;
-  font-family: inherit;
+  border-radius: 40px;
   cursor: pointer;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  transition: background-color 0.2s ease;
+  font-weight: bold;
+  margin: 0 0 0 175px;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
 
   &:hover {
-    background-color: #b9912e;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.9),
+                0 0 40px rgba(212, 175, 55, 0.6);
   }
 `;
 export const SuccessToast = styled.div`

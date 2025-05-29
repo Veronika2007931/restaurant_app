@@ -14,7 +14,7 @@ export const Delivery=() => {
   return (
     <Content>
       <Breadcrumbs>
-        <BreadcrumbLink href="/">🏠</BreadcrumbLink> / <span>Доставка</span>
+        <BreadcrumbLink href="/">🏠</BreadcrumbLink>/ <span>Доставка</span>
       </Breadcrumbs>
       <TitleWithDivider>Доставка</TitleWithDivider>
       <Text>Зверніть увагу, що доставка здійснюється за допомогою сервісів Uklon або Uber.</Text>

@@ -4,20 +4,13 @@ import { Basket } from "components/Basket/basket";
 import { Overlay } from "../Basket/basket.styled";
 import { CategoryBar } from "./CategoryBar";
 import {
-  Cart,
   MenuContainer,
   CategorySection,
   CategoryTitle,
   ItemsRow,
   MenuItem,
-  CategoryList,
-  CategoryButton,
-  Breadcrumbs,
-  BreadcrumbLink,
-  TopRow,
   MenuWrapper
 } from "./Menu.styled";
-import basket from '../Images/basket.png';
 
 
 export const MenuList = ({ setActiveSection }) => {
@@ -51,39 +44,16 @@ export const MenuList = ({ setActiveSection }) => {
     return acc;
   }, {});
 
-
+  const categories = Object.keys(groupedItems);
 
 
   return (
   <MenuWrapper>
-    <TopRow>
-      <Breadcrumbs>
-        <BreadcrumbLink href="/">🏠</BreadcrumbLink> / <span>Меню</span>
-      </Breadcrumbs>
-      <Cart onClick={() => setIsCartOpen(true)}>
-        <img src={basket} alt="Кошик" />
-      </Cart>
-    </TopRow>
-
     <CategoryBar
-      categories={Object.keys(groupedItems)}
+      categories={categories}
       setActiveSection={setActiveSection}
       setIsCartOpen={setIsCartOpen}
-    />
-
-    <CategoryList>
-      {Object.keys(groupedItems).map((category) => (
-        <CategoryButton
-          key={category}
-          onClick={() => {
-            const el = document.getElementById(category.toLowerCase().replace(/\s/g, "-"));
-            if (el) el.scrollIntoView({ behavior: "smooth" });
-          }}
-        >
-          {category}
-        </CategoryButton>
-      ))}
-    </CategoryList>
+    />    
 
     <MenuContainer>
       {Object.entries(groupedItems).map(([category, items]) => (
