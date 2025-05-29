@@ -1,11 +1,33 @@
 import styled from "styled-components";
 
 export const MenuContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
   padding: 2rem;
   font-family: Italic;
+`;
+
+export const CategorySection = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const CategoryTitle = styled.h2`
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-family: Italic;
+  font-weight: 600;
+  color: #000;
+`;
+
+export const ItemsRow = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
 `;
 
 export const MenuItem = styled.div`
@@ -74,13 +96,14 @@ export const CategoryButton = styled.button`
 export const MenuTitle = styled.h2`
   text-align: center;
   margin-top: 1rem;
-  font-family: Italic; 
-  font-size: 2.5rem; 
-  font-weight: 500; 
-  color: #333; 
-  letter-spacing: 0.05em; 
+  font-family: Italic;
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #333;
+  letter-spacing: 0.05em;
 
   @media (max-width: 768px) {
-    font-size: 2rem; 
+    font-size: 2rem;
   }
 `;
+

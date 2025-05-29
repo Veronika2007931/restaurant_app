@@ -6,17 +6,17 @@ const { Sequelize, DataTypes } = require('sequelize');
 
 
 
-// const sequelize = new Sequelize('restaurant_db', 'root', '0951207020', {
-//     host: 'localhost',
-//     dialect: 'mysql',
-//     logging: false
+const sequelize = new Sequelize('restaurant_db', 'root', '0951207020', {
+    host: 'localhost',
+    dialect: 'mysql',
+    logging: false
 
-//  });
+ });
 
-const sequelize = new Sequelize('restaurant_db', 'root', 'Vika20082106', {
-host: 'localhost',
-dialect: 'mysql'
-});
+// const sequelize = new Sequelize('restaurant_db', 'root', 'Vika20082106', {
+// host: 'localhost',
+// dialect: 'mysql'
+// });
 
 // const sequelize = new Sequelize('restaurant_db', 'root', '1510sofia2007', {
 
@@ -44,17 +44,75 @@ const MenuItem = sequelize.define('MenuItem', {
     imageUrl: {
         type: DataTypes.STRING(1000),
         allowNull: true
-    }
+  },
+     category: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    defaultValue: 'Інше'
+  }
 });
 
 
 
+const categorizeItem = (name) => {
+  const lower = name.toLowerCase();
+
+  if (
+    lower.includes("суп") ||
+    lower.includes("харчо") ||
+    lower.includes("борщ") ||
+    lower.includes("солянка")
+  ) return "Перші страви";
+
+  if (
+    lower.includes("салат") ||
+    lower.includes("цезар") ||
+    lower.includes("оселедець")
+  ) return "Салати";
+
+  if (
+    lower.includes("куряче філе") ||
+    lower.includes("вареники") ||
+    lower.includes("деруни") ||
+    lower.includes("паста") ||
+    lower.includes("плов")
+  ) return "Другі страви";
+
+  if (lower.includes("піца")) return "Піца";
+
+  if (
+    lower.includes("гриль") ||
+    lower.includes("шашлик") ||
+    lower.includes("стейк")
+  ) return "Мангал";
+
+  if (
+    lower.includes("чизкейк") ||
+    lower.includes("сирник") ||
+    lower.includes("штрудель") ||
+    lower.includes("десерт") ||
+    lower.includes("торт")
+  ) return "Десерти";
+
+  if (
+    lower.includes("чай") ||
+    lower.includes("кава") ||
+    lower.includes("лимонад") ||
+    lower.includes("сік") ||
+    lower.includes("напій")
+  ) return "Напої";
+
+  return "Інше";
+};
 
 
 
 
 
 
+MenuItem.beforeCreate((item) => {
+  item.category = categorizeItem(item.name);
+});
 
 const app = express();
 app.use(express.json());
