@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Header1 } from "./Header1/Header1";
 import { Header2 } from "./Header2/Header2";
 import { MenuList } from "./Menu/MenuList";
-import { CategoryBar } from "./Menu/CategoryBar";
 import { Contacts } from "./Contacts/contacts";
 import { Delivery } from "./Delivery/delivery";
 import { Footer } from "./Footer/Footer";
@@ -11,16 +10,6 @@ import { AppContainer, MainContent, StyledFooter } from "./App.styled";
 export function App() {
   const [activeSection, setActiveSection] = useState("home");
 
-  const menuCategories = [
-    "Перші страви",
-    "Салати",
-    "Другі страви",
-    "Мангал",
-    "Піца",
-    "Інше",
-    "Десерти",
-    "Напої",
-  ];
 
   return (
     <AppContainer>

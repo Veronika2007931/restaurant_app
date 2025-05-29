@@ -117,26 +117,15 @@ export const Cart = styled.button`
   margin-bottom: 0;
   padding-top: 32px;
   letter-spacing: 0.05em;
-  /* Видалити background-color */
 
 
-  img {
-    width: 32px;
-    height: 32px;
-  }
-`;
-
-
-export const Cart = styled.button`
-  background: none;
-  border: none;
-  cursor: pointer;
 
   img {
     width: 32px;
     height: 32px;
   }
 `;
+
 
 
 export const Breadcrumbs = styled.div`

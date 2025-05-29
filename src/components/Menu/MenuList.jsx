@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Basket } from "components/Basket/basket";
 import { Overlay } from "../Basket/basket.styled";
-import { CategoryBar } from "./CategoryBar"; 
+import { CategoryBar } from "./CategoryBar";
 import {
   Cart,
   MenuContainer,
@@ -10,7 +10,6 @@ import {
   CategoryTitle,
   ItemsRow,
   MenuItem,
-  MenuTitle,
   CategoryList,
   CategoryButton,
   Breadcrumbs,
@@ -35,7 +34,7 @@ export const MenuList = ({ setActiveSection }) => {
   }, []);
 
 
-  
+
   const addToCart = (item) => {
     setCartItems((prevItems) => [...prevItems, item]);
   };
@@ -52,89 +51,76 @@ export const MenuList = ({ setActiveSection }) => {
     return acc;
   }, {});
 
-  return (
-    <MenuWrapper>
-      <TopRow>
-        <Breadcrumbs>
-          <BreadcrumbLink href="/">🏠</BreadcrumbLink> / <span>Меню</span>
-        </Breadcrumbs>
-        <Cart onClick={() => setIsCartOpen(true)}>
-          <img src={basket} alt="Кошик" />
-        </Cart>
-      </TopRow>
 
-
-
-  const categories = Object.keys(groupedItems);
 
 
   return (
-    <>
-      <CategoryBar
-        categories={categories}
-        setActiveSection={setActiveSection}
-        setIsCartOpen={setIsCartOpen}
-      />
+  <MenuWrapper>
+    <TopRow>
+      <Breadcrumbs>
+        <BreadcrumbLink href="/">🏠</BreadcrumbLink> / <span>Меню</span>
+      </Breadcrumbs>
+      <Cart onClick={() => setIsCartOpen(true)}>
+        <img src={basket} alt="Кошик" />
+      </Cart>
+    </TopRow>
 
-      <MenuContainer>
-        {Object.entries(groupedItems).map(([category, items]) => (
-          <CategorySection
-            key={category}
-            id={category.toLowerCase().replace(/\s/g, "-")}
-          >
+    <CategoryBar
+      categories={Object.keys(groupedItems)}
+      setActiveSection={setActiveSection}
+      setIsCartOpen={setIsCartOpen}
+    />
 
-      <CategoryList>
-        {Object.keys(groupedItems).map((category) => (
-          <CategoryButton
-            key={category}
-            onClick={() => {
-              const el = document.getElementById(category.toLowerCase().replace(/\s/g, "-"));
-              if (el) el.scrollIntoView({ behavior: "smooth" });
-            }}
-          >
-            {category}
-          </CategoryButton>
-        ))}
-      </CategoryList>
+    <CategoryList>
+      {Object.keys(groupedItems).map((category) => (
+        <CategoryButton
+          key={category}
+          onClick={() => {
+            const el = document.getElementById(category.toLowerCase().replace(/\s/g, "-"));
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
+          {category}
+        </CategoryButton>
+      ))}
+    </CategoryList>
 
-      <MenuContainer>
-        {Object.entries(groupedItems).map(([category, items]) => (
-          <CategorySection key={category} id={category.toLowerCase().replace(/\s/g, "-")}>
+    <MenuContainer>
+      {Object.entries(groupedItems).map(([category, items]) => (
+        <CategorySection
+          key={category}
+          id={category.toLowerCase().replace(/\s/g, "-")}
+        >
+          <CategoryTitle>{category}</CategoryTitle>
+          <ItemsRow>
+            {items.map((item, index) => (
+              <MenuItem key={index}>
+                {item.imageUrl && (
+                  <img src={item.imageUrl} alt={item.name} />
+                )}
+                <h3>{item.name}</h3>
+                <p>{item.description}</p>
+                <p>Ціна: {item.price} грн</p>
+                <p>Вага: {item.weight} г</p>
+                <button onClick={() => addToCart(item)}>Замовити</button>
+              </MenuItem>
+            ))}
+          </ItemsRow>
+        </CategorySection>
+      ))}
+    </MenuContainer>
 
-            <CategoryTitle>{category}</CategoryTitle>
-            <ItemsRow>
-              {items.map((item, index) => (
-                <MenuItem key={index}>
-
-                  {item.imageUrl && (
-                    <img src={item.imageUrl} alt={item.name} />
-                  )}
-
-                  {item.imageUrl && <img src={item.imageUrl} alt={item.name} />}
-
-                  <h3>{item.name}</h3>
-                  <p>{item.description}</p>
-                  <p>Ціна: {item.price} грн</p>
-                  <p>Вага: {item.weight} г</p>
-                  <button onClick={() => addToCart(item)}>Замовити</button>
-                </MenuItem>
-              ))}
-            </ItemsRow>
-          </CategorySection>
-        ))}
-      </MenuContainer>
-
-      {isCartOpen && (
-        <>
-          <Overlay onClick={() => setIsCartOpen(false)} />
-          <Basket
-            setcart ={setCartItems}
-            cartItems={cartItems}
-            removeItem={removeFromCart}
-            onClose={() => setIsCartOpen(false)}
-          />
-        </>
-      )}
-    </MenuWrapper>
-  );
+    {isCartOpen && (
+      <>
+        <Overlay onClick={() => setIsCartOpen(false)} />
+        <Basket
+          setcart={setCartItems}
+          cartItems={cartItems}
+          removeItem={removeFromCart}
+          onClose={() => setIsCartOpen(false)}
+        />
+      </>
+    )}
+  </MenuWrapper>
+);
 };
