@@ -42,10 +42,10 @@ const StickyWrapper = styled.div`
   position: sticky;
   top: 0; 
   z-index: 999;
-  background-color: white;
-  padding: 0.5rem;
+  padding: 0.5rem 0;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   background-color: #fff9e6;
+  width: 100vw;
 `;
 
 const TopBar = styled.div`
