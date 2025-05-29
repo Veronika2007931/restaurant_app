@@ -28,23 +28,21 @@ export const Footer = ({ setActiveSection }) => {
         </FooterColumn1>
 
         <FooterColumn2>
-          <FooterTitle>Для клієнтів</FooterTitle>
+          <FooterTitle>Додатково</FooterTitle>
           <FooterLine>____________________________</FooterLine>
-          <FooterLink href="#">Ресторан для двох</FooterLink>
-          <FooterLink href="#">Ресторани в центрі Києва</FooterLink>
-          <FooterLink href="#">Дегустаційні сети з доставкою</FooterLink>
-          <FooterLink href="#">Ресторан американської кухні</FooterLink>
-          <FooterLink href="#">Доставка їжі з ресторану в Києві</FooterLink>
-          <FooterLink href="#">Де поїсти смачний стейк у Києві?</FooterLink>
-          <FooterLink href="#">М'ясний ресторан — найкраще м'ясо, <br />кращі стейки</FooterLink>
-          <FooterLink href="#">Стейк-хаус в центрі Києва</FooterLink>
+          <FooterLink href="#">Акції</FooterLink>
+          <FooterLink href="#">Банкети</FooterLink>
+          <FooterLink href="#">Дегустаційні дні</FooterLink>
+          <FooterLink href="#">Відгуки та пропозиції</FooterLink>
+          <FooterLink href="#">Працівники ресторану</FooterLink>
+          <FooterLink href="#">Вакансії</FooterLink>
         </FooterColumn2>
 
         <FooterColumn3>
-          <FooterTitle>Наше меню</FooterTitle>
+          <FooterTitle>Послуги</FooterTitle>
           <FooterLine>________________________</FooterLine>
           <FooterLink href="#">Доставка</FooterLink>
-          <FooterLink href="#">Бургери з доставкою</FooterLink>
+          <FooterLink href="#">Оцінка страв</FooterLink>
           <FooterLink href="#">Резерв столу</FooterLink>
         </FooterColumn3>
 

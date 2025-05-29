@@ -8,8 +8,8 @@ export const AppContainer = styled.div`
   width: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; 
-  position: relative; 
+  overflow-x: clip; /* дозволяє sticky працювати */
+  position: relative;
 `;
 
 export const MainContent = styled.main`
@@ -22,4 +22,6 @@ export const StyledFooter = styled.footer`
   background-color: #000;
   color: #fff;
   width: 100%;
+
 `;
+
