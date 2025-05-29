@@ -1,10 +1,11 @@
 module.exports = {
-  testEnvironment: 'jsdom',
   transform: {
-    "^.+\\.[jt]sx?$": "babel-jest"
+    "^.+\\.(js|jsx)$": "babel-jest"
   },
-  moduleNameMapper: {
-    "\\.(css|less|scss)$": "identity-obj-proxy",
-    "^components/(.*)$": "<rootDir>/src/components/$1"
-  }
+  testEnvironment: "jsdom",
+  moduleFileExtensions: ["js", "jsx"],
+  setupFilesAfterEnv: ["<rootDir>/src/setupTests.js"],
+  transformIgnorePatterns: [
+    "/node_modules/(?!axios)/" // дозволити Jest трансформувати axios (ESM)
+  ]
 };
