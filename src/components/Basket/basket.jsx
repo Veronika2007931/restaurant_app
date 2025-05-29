@@ -1,6 +1,10 @@
 import {Drawer,Header, DeleteButton, Content,Footer,CloseButton,CheckoutButton,CartItem,Image, ItemInfo, BasketTitle,BasketHeader } from "./basket.styled.jsx"
+import { useState } from "react";
+import { PaymentModal } from "./payment.jsx";
 
-export const Basket = ({cartItems, onClose, removeItem}) => {
+export const Basket = ({ cartItems, onClose, removeItem, setcart }) => {
+
+  const [isPaying, setIsPaying] = useState(false);
   const total = cartItems.reduce((sum, item) => sum + parseFloat(item.price), 0)
 
 
@@ -38,7 +42,14 @@ export const Basket = ({cartItems, onClose, removeItem}) => {
       </Content>
       <Footer>
         <p><strong>Сума:   </strong>{total.toFixed(2)}грн</p>
-        <CheckoutButton>Оплатити</CheckoutButton>
+         <CheckoutButton onClick={() => setIsPaying(true)}>Оплатити</CheckoutButton>
+{isPaying && (
+  <PaymentModal
+    total={total}
+    onClose={() => setIsPaying(false)}
+    onConfirm={() => setcart([])}
+  />
+)}
       </Footer>
     </Drawer>
   )

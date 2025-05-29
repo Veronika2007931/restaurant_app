@@ -98,6 +98,7 @@ export const MenuList = ({ setActiveSection }) => {
         <>
           <Overlay onClick={() => setIsCartOpen(false)} />
           <Basket
+            setcart ={setCartItems}
             cartItems={cartItems}
             removeItem={removeFromCart}
             onClose={() => setIsCartOpen(false)}

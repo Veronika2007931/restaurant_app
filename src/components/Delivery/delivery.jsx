@@ -1,5 +1,4 @@
-import { Header2 } from "../Header2/Header2"
-import {Footer} from "../Footer/Footer.jsx"
+
 import {
   Content,
   Breadcrumbs,
@@ -20,7 +19,7 @@ export const Delivery=() => {
       <TitleWithDivider>Доставка</TitleWithDivider>
       <Text>Зверніть увагу, що доставка здійснюється за допомогою сервісів Uklon або Uber.</Text>
       <TextConditions>УМОВИ ДОСТАВКИ:</TextConditions>
-      <List>мінімальне замовлення — 450 грн; 
+      <List>мінімальне замовлення — 450 грн;
       <br />замовлення по місту Київ — 150 грн;
       <br />замовлення за межі міста — по тарифу таксі.</List>
     </Content>

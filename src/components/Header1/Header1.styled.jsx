@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+
 import styled from "styled-components";
-import bgImage from '../Images/3.avif'; 
+import bgImage from '../Images/3.avif';
 
 const GOLD = '#D4AF37';
 const BURGUNDY = '#5B0707';
@@ -41,16 +41,16 @@ export const TopBar = styled.div`
 ;
 
 export const TopBarContent = styled.div`
-  font-family: Italic; 
-  font-size: 17px; 
+  font-family: Italic;
+  font-size: 17px;
   display: flex;
   gap: 40px;
   padding: 10px 0;
-  margin-left: 75px; 
+  margin-left: 75px;
 `;
 
 export const TopBarTime = styled.div`
-  font-family: Italic;  
+  font-family: Italic;
   white-space: nowrap;
   margin-left: 500px;
   color: #fff;
@@ -84,7 +84,7 @@ export const RightSection = styled.div`
 `;
 
 export const Logo = styled.h1`
-  position: fixed; 
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -95,7 +95,7 @@ export const Logo = styled.h1`
   letter-spacing: 3px;
   margin: 0;
   text-transform: uppercase;
-  pointer-events: none; 
+  pointer-events: none;
   user-select: none;
   z-index: 10000;
 `;

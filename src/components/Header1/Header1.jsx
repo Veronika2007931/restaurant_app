@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { RegisterForm } from "../RegisterForm/RegisterForm";
-import { Footer } from "../Footer/Footer";
+
 import {
   HeaderContainer,
   NavBar,
@@ -10,26 +10,29 @@ import {
   NavLink,
   RightSection,
   LeftSection,
-  CenterSection,
-  SignUpButton,
   ReservationButton,
   IconWrapper,
   UserIcon,
   Name,
   LanguageSelector,
   Logo,
-  BottomLef,
-  BottomRigh,
   SignInButton,
 } from "./Header1.styled";
+import { Reservation } from "components/Reservation/reservation";
 
 export const Header1 = ({ setActiveSection }) => {
   const [showModal, setShowModal] = useState(false);
+   const [showModalReserve, setShowModalReserve] = useState(false);
   const [account, setAccount] = useState(null);
 
   const switchModal = () => {
     setShowModal(!showModal);
   };
+
+   const switchModalReserv = () => {
+    setShowModalReserve(!showModalReserve);
+  };
+
 
   const check = () => {
     const info = JSON.parse(localStorage.getItem("accInfo"));
@@ -66,7 +69,7 @@ export const Header1 = ({ setActiveSection }) => {
           </LeftSection>
 
           <RightSection>
-            <ReservationButton>РЕЗЕРВ СТОЛУ</ReservationButton>
+            <ReservationButton  onClick={switchModalReserv}>РЕЗЕРВ СТОЛУ</ReservationButton>
             {account ? (
               <IconWrapper>
                 <UserIcon src="../Images/free-icon-profile-7710521.png" alt="photo" />
@@ -78,6 +81,9 @@ export const Header1 = ({ setActiveSection }) => {
               </SignInButton>
             )}
             <LanguageSelector>UA</LanguageSelector>
+            {showModalReserve && (
+              <Reservation closeModal={switchModalReserv } />
+            )}
             {showModal && (
               <RegisterForm closeModal={switchModal} regis={setAccount} check={check} />
             )}

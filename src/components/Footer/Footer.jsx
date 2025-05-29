@@ -15,7 +15,7 @@ import {
 } from "./Footer.styled"
 import starsImg from '../Images/stars.png';
 
-export const Footer = ({ setActiveSection }) => {
+export const Footer = () => {
 
   return (
     <FooterContainer>
@@ -23,7 +23,7 @@ export const Footer = ({ setActiveSection }) => {
 
         <FooterColumn1>
           <h2>МІТЕРІЯ</h2>
-          <img src = {starsImg} />
+          <img src = {starsImg} alt="img" />
           <Copyright>© 2025 Всі права захищені</Copyright>
         </FooterColumn1>
 

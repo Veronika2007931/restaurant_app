@@ -91,6 +91,7 @@ export const FormButton = styled.button`
     transform: scale(1.1);
     box-shadow: 0 0 20px rgba(212, 175, 55, 0.9),
                 0 0 40px rgba(212, 175, 55, 0.6);
+  }
 `;
 
 export const Ul = styled.ul`

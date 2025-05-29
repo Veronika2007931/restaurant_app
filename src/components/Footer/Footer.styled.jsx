@@ -3,7 +3,7 @@ import footerBg from '../Images/footer_background.png';
 
 
 const GOLD = '#D4AF37';
-const BURGUNDY = '#5B0707';
+// const BURGUNDY = '#5B0707';
 
 export const FooterContainer = styled.footer`
   background-image: url(${footerBg});
@@ -23,7 +23,7 @@ export const FooterColumn1 = styled.div`
 
   h2{
   font-family: Italic;}
-  }
+
 `;
 
 export const FooterColumn2 = styled.div`
@@ -82,7 +82,7 @@ export const FooterContactAddress = styled.p`
 export const FooterContactSchedule = styled.p`
   padding-top: 50px;
   font-family: Italic;
-  }
+  
 `;
 
 export const Copyright = styled.p`

@@ -1,5 +1,4 @@
-import { Header2 } from "components/Header2/Header2";
-import { Footer } from "../Footer/Footer";
+
 import {
   PageWrapper,
   PageContainer,
@@ -13,7 +12,7 @@ import {
   InfoItem,
   Icon,
   Text,
-  Divider,
+
 } from "./contacts.styled";
 
 import dish_and_interior from "../Images/dish_and_interior.png";
