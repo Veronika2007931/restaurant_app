@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import TableImage from '../Images/photo_5314650398621038594_y.jpg';
 import {Overlay, Container, CloseButton, Input, Label, Select, Title, SubmitButton, SuccessToast} from "./reservatiomn.styled"
-import { CenterSection } from "components/Header2/Header2.styled";
 export const Reservation = ({ closeModal }) => {
 
   const [showSuccess, setShowSuccess] = useState(false);
