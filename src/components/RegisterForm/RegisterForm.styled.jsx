@@ -31,11 +31,10 @@ export const CloseButton = styled.button`
   border: none;
   color: grey;
   cursor: pointer;
-  transition: transform 0.2s ease, color 0.2s ease;
+  transition: color 0.2s ease;
 
   &:hover {
     color: #d00;
-    transform: scale(1.2);
   }
 `;
 
@@ -95,5 +94,6 @@ export const FormButton = styled.button`
 `;
 
 export const Ul = styled.ul`
+  margin-bottom: 0;
   list-style: none;
 `;

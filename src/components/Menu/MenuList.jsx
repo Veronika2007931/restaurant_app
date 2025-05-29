@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Basket } from "components/Basket/basket";
 import { Overlay } from "../Basket/basket.styled";
+import { CategoryBar } from "./CategoryBar"; 
 import {
   Cart,
   MenuContainer,
@@ -19,19 +20,22 @@ import {
 } from "./Menu.styled";
 import basket from '../Images/basket.png';
 
+
 export const MenuList = ({ setActiveSection }) => {
   const [menuItems, setMenuItems] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
 
-
   useEffect(() => {
-    axios.get('/menu')
-      .then(responce => setMenuItems(responce.data))
-      .catch(error => console.error("Помилка отримання меню"))
-  }, [])
+    axios
+      .get("/menu")
+      .then((responce) => setMenuItems(responce.data))
+      .catch((error) => console.error("Помилка отримання меню"));
+  }, []);
 
+
+  
   const addToCart = (item) => {
     setCartItems((prevItems) => [...prevItems, item]);
   };
@@ -47,6 +51,7 @@ export const MenuList = ({ setActiveSection }) => {
     acc[item.category].push(item);
     return acc;
   }, {});
+
   return (
     <MenuWrapper>
       <TopRow>
@@ -59,7 +64,24 @@ export const MenuList = ({ setActiveSection }) => {
       </TopRow>
 
 
-      <MenuTitle>МЕНЮ</MenuTitle>
+
+  const categories = Object.keys(groupedItems);
+
+
+  return (
+    <>
+      <CategoryBar
+        categories={categories}
+        setActiveSection={setActiveSection}
+        setIsCartOpen={setIsCartOpen}
+      />
+
+      <MenuContainer>
+        {Object.entries(groupedItems).map(([category, items]) => (
+          <CategorySection
+            key={category}
+            id={category.toLowerCase().replace(/\s/g, "-")}
+          >
 
       <CategoryList>
         {Object.keys(groupedItems).map((category) => (
@@ -78,11 +100,18 @@ export const MenuList = ({ setActiveSection }) => {
       <MenuContainer>
         {Object.entries(groupedItems).map(([category, items]) => (
           <CategorySection key={category} id={category.toLowerCase().replace(/\s/g, "-")}>
+
             <CategoryTitle>{category}</CategoryTitle>
             <ItemsRow>
               {items.map((item, index) => (
                 <MenuItem key={index}>
+
+                  {item.imageUrl && (
+                    <img src={item.imageUrl} alt={item.name} />
+                  )}
+
                   {item.imageUrl && <img src={item.imageUrl} alt={item.name} />}
+
                   <h3>{item.name}</h3>
                   <p>{item.description}</p>
                   <p>Ціна: {item.price} грн</p>
@@ -94,6 +123,7 @@ export const MenuList = ({ setActiveSection }) => {
           </CategorySection>
         ))}
       </MenuContainer>
+
       {isCartOpen && (
         <>
           <Overlay onClick={() => setIsCartOpen(false)} />
