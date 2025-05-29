@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -16,9 +17,11 @@ export const MainContent = styled.main`
 `;
 
 export const StyledFooter = styled.footer`
+
   flex: 1;
   background-color: #000;
   color: #fff;
   width: 100%;
+
 `;
 

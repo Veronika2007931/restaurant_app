@@ -33,7 +33,7 @@ export const ItemsRow = styled.div`
 `;
 
 export const MenuItem = styled.div`
-  background-color: #fff;
+  background-color: #fff; /* Залишити білий фон для карток */
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 1rem;
@@ -61,13 +61,19 @@ export const MenuItem = styled.div`
 
   button {
     margin-top: 1rem;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
     border: none;
     background-color: #D4AF37;
     font-family: Italic;
     color: white;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #c29c30;
+    }
   }
 `;
 
@@ -83,8 +89,12 @@ export const CategoryButton = styled.button`
   background: none;
   border: none;
   font-size: 1rem;
-  color: #000;
-  border-bottom: 2px solid transparent;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: ${({ active }) => (active ? "#D4AF37" : "#000")};
+  border-bottom: ${({ active }) =>
+    active ? "2px solid #D4AF37" : "2px solid transparent"};
+  padding-bottom: 5px;
   cursor: pointer;
 `;
 
@@ -95,6 +105,7 @@ export const MenuTitle = styled.h2`
   font-size: 2.5rem;
   font-weight: 500;
   color: #333;
+
 `;
 
 export const Cart = styled.button`
@@ -105,12 +116,28 @@ export const Cart = styled.button`
   padding-bottom: 0;
   margin-bottom: 0;
   padding-top: 32px;
+  letter-spacing: 0.05em;
+  /* Видалити background-color */
+
 
   img {
     width: 32px;
     height: 32px;
   }
 `;
+
+
+export const Cart = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  img {
+    width: 32px;
+    height: 32px;
+  }
+`;
+
 
 export const Breadcrumbs = styled.div`
   color: #555;
@@ -119,9 +146,22 @@ export const Breadcrumbs = styled.div`
   margin-left: 107px;
   padding-top: 32px;
   margin-bottom: 0;
+
 `;
 
 export const BreadcrumbLink = styled.a`
   text-decoration: none;
   color: #333;
+`;
+
+export const TopRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 3rem;
+`;
+export const MenuWrapper = styled.div`
+  background-color: #fff9e6;
+  min-height: 100vh;
+  padding: 1rem 2rem;
 `;
