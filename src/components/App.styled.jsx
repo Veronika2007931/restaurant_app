@@ -1,8 +1,14 @@
 import styled from "styled-components";
+
 export const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; 
+  position: relative; 
 `;
 
 export const MainContent = styled.main`
@@ -10,9 +16,8 @@ export const MainContent = styled.main`
 `;
 
 export const StyledFooter = styled.footer`
-  width: 100%;
+  flex: 1; 
   background-color: #000;
   color: #fff;
-  padding: 2rem;
-  text-align: center;
+  width: 100%;
 `;
