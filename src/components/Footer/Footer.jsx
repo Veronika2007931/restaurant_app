@@ -15,7 +15,7 @@ import {
 } from "./Footer.styled"
 import starsImg from '../Images/stars.png';
 
-export const Footer = () => {
+export const Footer = ({ setActiveSection }) => {
 
   return (
     <FooterContainer>
@@ -61,7 +61,7 @@ export const Footer = () => {
             📍 Київ, вул. Велика Васильківська, 114
             </a>
           </FooterContactAddress>
-          <FooterContact>📞 +380 (67) 382 01 74</FooterContact>
+          <FooterContact>📞 +380 (44) 204 91 00</FooterContact>
           <FooterContactSchedule>🕒 Пн - Нд: 11:00–22:00</FooterContactSchedule>
         </FooterColumn4>
 

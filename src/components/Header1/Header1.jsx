@@ -49,14 +49,16 @@ export const Header1 = ({ setActiveSection }) => {
         <TopBar>
           <TopBarContent>
             <span>Київ, вул. Велика Васильківська, 114</span>
-            <span>+380 (67) 478 99 38</span>
+             <span>📞 +380 (44) 204 91 00</span>
           </TopBarContent>
-          <TopBarTime>Пн - Нд 11:00–22:00</TopBarTime>
+           <TopBarContent>🕒 Пн - Нд: 11:00–22:00</TopBarContent>
+
+
         </TopBar>
 
         <NavBar>
           <LeftSection>
-            <NavLink onClick={() => setActiveSection("home")}>ДОСТАВКА</NavLink>
+            <NavLink onClick={() => setActiveSection("delivery")}>ДОСТАВКА</NavLink>
             <span>|</span>
             <NavLink onClick={() => setActiveSection("menu")}>МЕНЮ</NavLink>
             <span>|</span>
@@ -88,7 +90,7 @@ export const Header1 = ({ setActiveSection }) => {
         <Logo>МІТЕРІЯ</Logo>
       </div>
 
-     
+
     </>
   );
 };

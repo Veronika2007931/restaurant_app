@@ -1,7 +1,9 @@
 import  { useEffect, useState } from "react"
 import axios from "axios"
 import { Basket } from "components/Basket/basket";
-import {Overlay} from "../Basket/basket.styled"
+import { Overlay } from "../Basket/basket.styled"
+import { Footer } from "../Footer/Footer"
+import {} from "./Menu.styled"
 
 export const MenuList = ({ setActiveSection }) => {
   const [menuItems, setMenuitems] = useState([])
@@ -32,7 +34,7 @@ export const MenuList = ({ setActiveSection }) => {
           </svg>
         </button>
         <button onClick={() => setActiveSection("home")}>На головну</button>
-        <div >
+        <div>
           {menuItems.map((item, index) => (
             <div key={index} >
               {item.imageUrl && (
@@ -60,7 +62,8 @@ export const MenuList = ({ setActiveSection }) => {
       onClose={() => setIsCartOpen(false)}
     />
   </>
-)}
+        )}
+       
       </>
     )
   }

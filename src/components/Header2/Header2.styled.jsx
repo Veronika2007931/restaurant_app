@@ -26,8 +26,8 @@ export const TopBar = styled.div`
 ;
 
 export const TopBarContent = styled.div`
-  font-family: Italic; 
-  font-size: 17px; 
+  font-family: Italic;
+  font-size: 17px;
   display: flex;
   gap: 40px;
   padding: 10px 0;
@@ -35,7 +35,7 @@ export const TopBarContent = styled.div`
 `;
 
 export const TopBarTime = styled.div`
-  font-family: Italic;  
+  font-family: Italic;
   white-space: nowrap;
   margin-left: 500px;
   color: #fff;
@@ -54,7 +54,7 @@ export const NavBar = styled.div`
 
 
 export const LeftSection = styled.div`
-   font-family: Italic;  
+   font-family: Italic;
   display: flex;
   align-items: center;
   gap: 15px;
@@ -70,7 +70,7 @@ export const CenterSection = styled.div`
 
 
 export const RightSection = styled.div`
-  font-family: Italic;  
+  font-family: Italic;
   display: flex;
   align-items: center;
   gap: 15px;
@@ -79,7 +79,7 @@ export const RightSection = styled.div`
 `;
 
 export const Logo = styled.h1`
-  font-family: Italic;  
+  font-family: Italic;
   font-size: 60px;
   font-weight: 700;
   color: #fff;
@@ -88,7 +88,7 @@ export const Logo = styled.h1`
   text-transform: uppercase;
   transition: color 0.3s ease;
   cursor: pointer;
-  }
+  
 `;
 
 export const NavLink = styled.a`
@@ -122,7 +122,7 @@ export const NavLink = styled.a`
 
 
 export const ReservationButton = styled.button`
-  font-family: Italic; 
+  font-family: Italic;
   background: transparent;
   color: #fff;
   border: 1px solid ${GOLD};
@@ -140,7 +140,7 @@ export const ReservationButton = styled.button`
 `;
 
 export const SignInButton = styled(ReservationButton)`
-  font-family: Italic; 
+  font-family: Italic;
   padding: 8px 16px;
   font-size: 18px;
 `;

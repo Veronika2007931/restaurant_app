@@ -4,6 +4,8 @@ import { Header2 } from "./Header2/Header2";
 import { MenuList } from "./Menu/MenuList";
 import { Contacts } from "./Contacts/contacts";
 import { Delivery } from "./Delivery/delivery";
+import { Footer } from "./Footer/Footer"
+import {AppContainer,MainContent,StyledFooter} from "./App.styled"
 
 export function App() {
   const [activeSection, setActiveSection] = useState("home");
@@ -12,24 +14,27 @@ export function App() {
 
 
   return (
-    <>
-      {/* Показуємо Header1 тільки на головній */}
-      {activeSection === "home" && (
-        <Header1 setActiveSection={setActiveSection} />
-      )}
 
-      {/* Показуємо Header2 на інших сторінках */}
-      {activeSection !== "home" && (
-        <Header2 setActiveSection={setActiveSection} />
-      )}
+    <AppContainer >
+  {activeSection === "home" ? (
+    <Header1 setActiveSection={setActiveSection} />
+  ) : (
+    <Header2 setActiveSection={setActiveSection} />
+  )}
 
-      <main style={{ padding: "20px" }}>
-        {activeSection === "menu" && (
-          <MenuList setActiveSection={setActiveSection} />
-        )}
-        {activeSection === "contacts" && <Contacts />}
-        {activeSection === "delivery" && <Delivery />}
-      </main>
-    </>
+  <MainContent>
+    {activeSection === "delivery" && <Delivery />}
+    {activeSection === "menu" && <MenuList />}
+    {activeSection === "contacts" && <Contacts />}
+    {/* інші сторінки */}
+  </MainContent>
+
+  {activeSection !== "home" && (
+    <StyledFooter>
+          <Footer setActiveSection={setActiveSection} />
+        </StyledFooter>
+  )}
+</AppContainer>
+
   );
 }
